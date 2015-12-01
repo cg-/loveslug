@@ -1,4 +1,13 @@
 /* line 1, ../sass/_main.scss */
-.colorful {
-  color: #bb8833;
+div.form {
+  color: white;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  padding: 10px;
+  margin: 40px;
+  -moz-border-radius: 20px;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  border: 1px solid;
 }

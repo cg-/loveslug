@@ -66,3 +66,24 @@ CREATE TABLE person(
 success!
 success!
 success!
+timestamp: 2015-12-01T01:44:20.068902
+ALTER TABLE person ADD looking_for CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
