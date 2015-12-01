@@ -23,6 +23,9 @@ def index():
         redirect(URL('index'))
     return dict(form = form)
 
+def matches():
+
+    return dict()
 
 def user():
     """
