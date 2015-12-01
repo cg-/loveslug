@@ -14,3 +14,12 @@
 ## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
+
+db.define_table('person',
+                Field('name', requires=IS_NOT_EMPTY()),
+                Field('birthday', 'date', requires=IS_DATE()),
+                Field('gender', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
+                Field('look_for', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
+                Field('email'),
+                Field('password', requires=IS_NOT_EMPTY()),
+                )

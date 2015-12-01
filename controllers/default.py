@@ -17,8 +17,11 @@ def index():
     return auth.wiki()
     """
     logger.info("Here we are, in the controller.")
-    response.flash = T("Hello World")
-    return dict(message=T('Welcome to web2py!'))
+    form = SQLFORM(db.person)
+    if form.process().accepted:
+        session.flash = T('The data was inserted')
+        redirect(URL('index'))
+    return dict(form = form)
 
 
 def user():
