@@ -16,11 +16,21 @@ def index():
     if you need a simple wiki simply replace the two lines below with:
     return auth.wiki()
     """
-    logger.info("Here we are, in the controller.")
+    #logger.info("Here we are, in the controller.")
     form = SQLFORM(db.person)
     if form.process().accepted:
-        session.flash = T('The data was inserted')
-        redirect(URL('index'))
+        logger.info(form.vars.password)
+        logger.info(form.vars.verify_password)
+        logger.info("Form Accepted")
+        if form.vars.password == form.vars.verify_password:
+            redirect(URL('default', 'index'))
+        else:
+            response.flash = "Passwords did not match!"
+    elif form.errors:
+        response.flash = "Form has errors"
+    """
+    problem is that the form is still being accepted even though we know the passwords don't match.
+    """
     return dict(form = form)
 
 def matches():

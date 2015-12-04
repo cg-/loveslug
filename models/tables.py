@@ -17,9 +17,11 @@
 
 db.define_table('person',
                 Field('name', requires=IS_NOT_EMPTY()),
-                Field('birthday', 'date', requires=IS_DATE()),
+                Field('birthday', 'date', requires=IS_DATE(format=T('%Y-%m-%d'),
+                        error_message='must be YYYY-MM-DD!')),
                 Field('gender', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
                 Field('look_for', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
-                Field('email'),
-                Field('password', requires=IS_NOT_EMPTY()),
+                Field('email', requires = IS_EMAIL(error_message='invalid email!')),
+                Field('password', 'password', requires=IS_NOT_EMPTY()),
+                Field('verify_password', 'password', requires=IS_NOT_EMPTY())
                 )
