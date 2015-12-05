@@ -87,3 +87,26 @@ success!
 success!
 success!
 success!
+timestamp: 2015-12-04T22:47:18.300800
+ALTER TABLE person ADD verify_password CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

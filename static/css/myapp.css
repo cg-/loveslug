@@ -11,3 +11,11 @@ div.form {
   border-radius: 20px;
   border: 1px solid;
 }
+
+/* line 14, ../sass/_main.scss */
+div.title {
+  color: white;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
