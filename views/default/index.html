@@ -1,31 +1,163 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
-<style>
-    body {
-        background: url('http://i.imgur.com/FLlTgwF.png');
-    }
-</style>
+<!-- IF USER IS NOT LOGGED IN, SHOW REGISTER PAGE-->
+{{if auth.user_id is None:}}
+  <!-- background image-->
+  <style>
+      body {
+          background: url('http://i.imgur.com/FLlTgwF.png');
+      }
+  </style>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <!-- loveslug logo -->
+      <div class="col-md-4">
+        <center><img src="http://i.imgur.com/AybSHtm.png" alt="LoveSlugs" style="width:510px;height:180px;"></center>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <!-- register form -->
+      <div class="form col-md-4">
+        <div role="form" id="blah_form">
+          {{=form}}
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+
+  {{block page_js}}
+  <script>
+      jQuery("#blah_form input:visible:enabled:first").focus();
+  {{if request.args(0)=='register':}}
+      web2py_validate_entropy(jQuery('#auth_user_password'),100);
+  {{elif request.args(0)=='change_password':}}
+      web2py_validate_entropy(jQuery('#no_table_new_password'),100);
+  {{pass}}
+  </script>
+  {{end page_js}}
+
+
+<!-- IF USER IS LOGGED IN, SHOW DAILY MATCHES-->
+{{else:}}
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-      <center><img src="http://i.imgur.com/AybSHtm.png" alt="Mountain View" style="width:510px;height:180px;"></center>
-    </div>
-    <div class="col-md-4">
+    <!-- navigation bar -->
+    <div class="col-md-12">
+      <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+        
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+          </button> <a class="navbar-brand" href="#">Brand</a>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li class="active">
+              <a href="#">Link</a>
+            </li>
+            <li>
+              <a href="#">Link</a>
+            </li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Action</a>
+                </li>
+                <li>
+                  <a href="#">Another action</a>
+                </li>
+                <li>
+                  <a href="#">Something else here</a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                  <a href="#">One more separated link</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" />
+            </div> 
+            <button type="submit" class="btn btn-default">
+              Submit
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="#">Link</a>
+            </li>
+            <li class="dropdown">
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#">Action</a>
+                </li>
+                <li>
+                  <a href="#">Another action</a>
+                </li>
+                <li>
+                  <a href="#">Something else here</a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                  <a href="#">Separated link</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        
+      </nav>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4">
     </div>
-    <div class="form col-md-4">
-      <form role="form">
-        {{=form}}
-      </form>
+    <div class="col-md-4">
+      <!-- TITLEgit  -->
+      <h3>
+        DAILY MATCHES
+      </h3>
     </div>
     <div class="col-md-4">
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-3">
+      <!-- DISPLAY MATCHES IMAGES HERE -->
+    </div>
+    <div class="col-md-3">
+      <!-- DISPLAY MATCHES IMAGES HERE -->
+    </div>
+    <div class="col-md-3">
+      <!-- DISPLAY MATCHES IMAGES HERE -->
+    </div>
+    <div class="col-md-3">
+      <!-- DISPLAY MATCHES IMAGES HERE -->
+    </div>
+  </div>
 </div>
+
+{{pass}}
