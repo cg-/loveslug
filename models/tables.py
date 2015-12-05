@@ -23,8 +23,16 @@ db.define_table('person',
                 Field('look_for', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
                 Field('email', requires = IS_EMAIL(error_message='invalid email!')),
                 Field('password', 'password', requires=IS_NOT_EMPTY()),
-                Field('verify_password', 'password', requires=IS_NOT_EMPTY())
+                Field('verify_password', 'password', requires=IS_NOT_EMPTY()),
+                Field('same_pw', default=False),
                 )
+db.person.same_pw.readable = db.person.same_pw.writable = False
+
+def same_pw(form):
+    if form.vars.password != None and form.vars.password == form.vars.verify_password:
+        form.vars.same_pw = True
+    else:
+        form.errors.password = 'Passwords did not match!'
 
 # Chat Table
 # Will be used to hold chat messages for IMs.
