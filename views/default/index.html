@@ -1,15 +1,18 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
+<style>
+  body {
+    background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
+    background-size: 100%;
+  }
+</style>
+
+
 <!-- IF USER IS NOT LOGGED IN, SHOW REGISTER PAGE-->
 {{if auth.user_id is None:}}
-  <!-- background image-->
-  <style>
-      body {
-          background: url('http://i.imgur.com/FLlTgwF.png');
-      }
-  </style>
 
+  <!-- background image-->
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-4">
@@ -46,100 +49,61 @@
   </script>
   {{end page_js}}
 
-
 <!-- IF USER IS LOGGED IN, SHOW DAILY MATCHES-->
 {{else:}}
 
 <div class="container-fluid">
   <div class="row">
-    <!-- navigation bar -->
     <div class="col-md-12">
-      <nav class="navbar navbar-default" role="navigation">
+      <!-- navigation bar -->
+      <nav class="menubar avbar navbar-default" role="navigation">
         <div class="navbar-header">
-        
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
              <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-          </button> <a class="navbar-brand" href="#">Brand</a>
+          </button> <a class="navbar-brand" href="#">LoveSlugs</a>
         </div>
-        
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li class="active">
-              <a href="#">Link</a>
+              <a href="#">HOME</a>
             </li>
             <li>
-              <a href="#">Link</a>
+              <a href="#">MESSAGES</a>
             </li>
             <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">PROFILE<strong class="caret"></strong></a>
               <ul class="dropdown-menu">
                 <li>
-                  <a href="#">Action</a>
+                  <a href="#">Edit Profile</a>
                 </li>
                 <li>
-                  <a href="#">Another action</a>
-                </li>
-                <li>
-                  <a href="#">Something else here</a>
-                </li>
-                <li class="divider">
-                </li>
-                <li>
-                  <a href="#">Separated link</a>
-                </li>
-                <li class="divider">
-                </li>
-                <li>
-                  <a href="#">One more separated link</a>
+                  <a href="#">Settings</a>
                 </li>
               </ul>
             </li>
           </ul>
-          <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-              <input type="text" class="form-control" />
-            </div> 
-            <button type="submit" class="btn btn-default">
-              Submit
-            </button>
-          </form>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#">Link</a>
-            </li>
-            <li class="dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="#">Action</a>
-                </li>
-                <li>
-                  <a href="#">Another action</a>
-                </li>
-                <li>
-                  <a href="#">Something else here</a>
-                </li>
-                <li class="divider">
-                </li>
-                <li>
-                  <a href="#">Separated link</a>
-                </li>
-              </ul>
+              <a href="#">Log Out</a>
             </li>
           </ul>
         </div>
-        
       </nav>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4">
     </div>
-    <div class="col-md-4">
-      <!-- TITLEgit  -->
-      <h3>
+    <div class="title col-md-4">
+      <!-- TITLE -->
+      <center>
+        <h3>
         DAILY MATCHES
-      </h3>
+        </h3>
+        <h5>
+          Now is your chance to make a move!
+        </h5>
+      </center>
     </div>
     <div class="col-md-4">
     </div>
