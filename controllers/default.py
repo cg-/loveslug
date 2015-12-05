@@ -18,14 +18,9 @@ def index():
     """
     #logger.info("Here we are, in the controller.")
     form = SQLFORM(db.person)
-    if form.process().accepted:
-        logger.info(form.vars.password)
-        logger.info(form.vars.verify_password)
+    if form.process(onvalidation=same_pw).accepted:
         logger.info("Form Accepted")
-        if form.vars.password == form.vars.verify_password:
-            redirect(URL('default', 'index'))
-        else:
-            response.flash = "Passwords did not match!"
+        redirect(URL('default', 'index'))
     elif form.errors:
         response.flash = "Form has errors"
     """
@@ -75,3 +70,5 @@ def call():
     return service()
 
 
+def reset_db():
+    db(db.person.id > 0).delete()
