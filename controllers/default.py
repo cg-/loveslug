@@ -27,6 +27,14 @@ def matches():
 
     return dict()
 
+def messages():
+
+    return dict()
+
+def profile():
+    
+    return dict()
+
 def user():
     """
     exposes:
