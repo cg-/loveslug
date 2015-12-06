@@ -17,9 +17,9 @@
 
 #Additional info to show on Personal Profile
 db.define_table('person',
+                Field('image', 'upload'),
                 Field('about_me', 'text'),
                 Field('interests', 'text'),
-                Field('ethnicity', 'text'),
                 Field('major', 'string'),
                 Field('college', requires=IS_IN_SET(['Nine', 'Ten', 
                                                     'Crown', 'Merrill', 
@@ -27,8 +27,6 @@ db.define_table('person',
                                                     'Porter', 'Kresge',
                                                     'Oakes','Eight',
                                                     'Off Campus'])),
-                Field('do_you_smoke', 'boolean'),
-                Field('do_you_drink', 'boolean'),
                 )
 
 # Chat Table
