@@ -29,13 +29,13 @@
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">PROFILE</a>
               <ul class="dropdown-menu">
-                <li class="active">
+                <li>
                   <a href="myprofile.html">View Profile</a>
                 </li>
                 <li>
                   <a href="editprofile.html">Edit Profile</a>
                 </li>
-                <li>
+                <li class="active">
                   <a href="settings.html">Settings</a>
                 </li>
               </ul>
@@ -58,23 +58,51 @@
       <!-- PAGE HEADER -->
       <center>
         <h3>
-        MY PROFILE
+        SEARCH SETTINGS
         </h3>
-        <h5>
-          <hr>
-        </h5>
-            <div>
-                <h3><b>My Picture:</b></h3>
-            <span>{{=(thisprofile[-1].image)}}</span>
-                <h3><b>About Me:</b></h3>
-            <span><h3>{{=(thisprofile[-1].about_me)}}</h3></span>
-                <h3><b>Interests:</b></h3>
-            <span><h3>{{=thisprofile[-1].interests}}</h3></span>
-                <h3><b>Major:</b></h3>
-            <span><h3>{{=thisprofile[-1].major}}</h3></span>
-                <h3><b>Location:</b></h3>
-            <span><h3>{{=thisprofile[-1].college}}</h3></span>
-                {{pass}}
+        <div>
+          <h4>
+          LOOKING FOR A:
+            <form action="">
+              <input type="checkbox" name="gender" value="Male">Male<br>
+              <input type="checkbox" name="gender" value="Female">Female
+            </form>
+            </h4>
+          </div>
+        <div>
+          <h4>
+            IN COLLEGE
+              <form action="">
+              <input type="checkbox" name="college" value="Porter">Porter<br>
+              <input type="checkbox" name="college" value="Kresge">Kresge<br>
+              <input type="checkbox" name="college" value="Merrill">Merrill<br>
+              <input type="checkbox" name="college" value="Crown">Crown<br>
+              <input type="checkbox" name="college" value="Oakes">Oakes<br>
+              <input type="checkbox" name="college" value="Cowell">Cowell<br>
+              <input type="checkbox" name="college" value="Stevenson">Stevenson<br>
+              <input type="checkbox" name="college" value="Eight">Eight<br>
+              <input type="checkbox" name="college" value="Nine">Nine<br>
+              <input type="checkbox" name="college" value="Ten">Ten<br>
+            </form>
+          </h4>
+        </div>
+        <div>
+          <h4>
+            AGE
+            <form method="post" action="demoform.asp">
+              <input type="range"  name="age" id="age" value="24" min="18" max="30" data-show-value="true">
+            </form>
+          </h4>
+        </div>
+        <div>
+          <h4>
+            MAJOR
+            <form action="">
+              <input type="checkbox" name="major" value="match">Match My Major!<br>
+              <input type="checkbox" name="major" value="nomatch">I Don't Care
+            </form>
+          </h4>
+        </div>
       </center>
     </div>
     <div class="col-md-4">

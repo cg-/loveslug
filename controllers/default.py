@@ -20,6 +20,10 @@ def messages():
 
     return dict()
 
+def settings():
+
+    return dict()
+
 def myprofile():
     thisprofile = db(db.person).select()
     return dict(thisprofile=thisprofile)
