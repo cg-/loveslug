@@ -16,18 +16,18 @@
 #########################################################################
 
 #Additional info to show on Personal Profile
-db.define_table('person',
-                Field('image', 'upload'),
-                Field('about_me', 'text'),
-                Field('interests', 'text'),
-                Field('major', 'string'),
+#db.define_table('person',
+                #Field('image', 'upload'),
+                #Field('about_me', 'text'),
+                #Field('interests', 'text'),
+                #Field('major', 'string'),
                 #Field('college', requires=IS_IN_SET(['Nine', 'Ten', 
                                                     #'Crown', 'Merrill', 
                                                     #'Stevenson', 'Cowell',
                                                     #'Porter', 'Kresge',
                                                     #'Oakes','Eight',
                                                     #'Off Campus'])),
-                )
+ #               )
 
 # Chat Table
 # Will be used to hold chat messages for IMs.
