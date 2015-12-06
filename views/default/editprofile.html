@@ -8,7 +8,7 @@
   }
 </style>
 
-    <div class="container-fluid">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <!-- NAVI BAR -->
@@ -29,10 +29,10 @@
             <li class="dropdown">
                <a href="#" class="dropdown-toggle" data-toggle="dropdown">PROFILE</a>
               <ul class="dropdown-menu">
-                <li class="active">
+                <li>
                   <a href="myprofile.html">View Profile</a>
                 </li>
-                <li>
+                <li class="active">
                   <a href="editprofile.html">Edit Profile</a>
                 </li>
                 <li>
@@ -50,6 +50,7 @@
       </nav>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-4">
     </div>
@@ -57,15 +58,12 @@
       <!-- PAGE HEADER -->
       <center>
         <h3>
-        PUBLIC PROFILE
+        UPDATE PROFILE
         </h3>
           <hr>
-        
-    		{{=profile}}
-    		</div>
-		{{pass}}
-       
+          {{=form}}
       </center>
     </div>
     <div class="col-md-4">
     </div>
+ 

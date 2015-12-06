@@ -643,3 +643,40 @@ CREATE TABLE email(
     sent CHAR(512)
 );
 success!
+timestamp: 2015-12-06T05:13:32.041374
+ALTER TABLE person ADD user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

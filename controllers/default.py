@@ -25,14 +25,28 @@ def myprofile():
     return dict(thisprofile=thisprofile)
 
 def profile():
-    form = SQLFORM(db.person)
+    profile = db.person
+    return dict(profile=profile)
+
+
+def editprofile():
+    profile = db.person
+    form = SQLFORM(db.person, record=profile)
+    if form.process().accepted:
+        session.flash = T('Your profile has been updated')
+        redirect(URL('default', 'editprofile'))
+    return dict(form=form)
+
+
+
+    """form = SQLFORM(db.person)
     if form.process().accepted:
         logger.info("Form Accepted")
         redirect(URL('default', 'index'))
     elif form.errors:
         response.flash = "Form has errors"
     
-    return dict(form = form)
+    return dict(form = form)"""
 
 def user():
     """
