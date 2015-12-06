@@ -21,6 +21,11 @@ def messages():
     return dict()
 
 def profile():
+
+    return dict()
+
+
+def editprofile():
     form = SQLFORM(db.person)
     if form.process().accepted:
         logger.info("Form Accepted")

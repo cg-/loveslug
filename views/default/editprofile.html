@@ -8,7 +8,6 @@
   }
 </style>
 
-
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
@@ -24,16 +23,16 @@
             <li>
               <a href="../">HOME</a>
             </li>
-            <li class="active">
+            <li>
               <a href="messages.html">MESSAGES</a>
             </li>
             <li class="dropdown">
-               <a href="profile.html" class="dropdown-toggle" data-toggle="dropdown">PROFILE</a>
+               <a href="#" class="dropdown-toggle" data-toggle="dropdown">PROFILE</a>
               <ul class="dropdown-menu">
-              	<li>
+                <li>
                   <a href="profile.html">View Profile</a>
                 </li>
-                <li>
+                <li class="active">
                   <a href="editprofile.html">Edit Profile</a>
                 </li>
                 <li>
@@ -51,3 +50,23 @@
       </nav>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="title col-md-4">
+      <!-- PAGE HEADER -->
+      <center>
+        <h3>
+        PROFILE
+        </h3>
+        <h5>
+          Update/Edit your profile for better matches
+          <hr>
+          {{=form}}
+        </h5>
+      </center>
+    </div>
+    <div class="col-md-4">
+    </div>
+ 
