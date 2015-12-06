@@ -17,6 +17,7 @@
 
 #Additional info to show on Personal Profile
 db.define_table('person',
+                Field('user_id', db.auth_user, default=auth.user_id),
                 Field('image', 'upload'),
                 Field('about_me', 'text'),
                 Field('interests', 'text'),
