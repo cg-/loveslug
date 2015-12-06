@@ -17,16 +17,31 @@ def index():
     return auth.wiki()
     """
     #logger.info("Here we are, in the controller.")
-    form = SQLFORM(db.person)
-    if form.process(onvalidation=same_pw).accepted:
-        logger.info("Form Accepted")
-        redirect(URL('default', 'index'))
-    elif form.errors:
-        response.flash = "Form has errors"
+    #form = SQLFORM(db.person)
+    #if form.process(onvalidation=same_pw).accepted:
+    #    logger.info("Form Accepted")
+    #    redirect(URL('default', 'index'))
+    #elif form.errors:
+    #    response.flash = "Form has errors"
     """
     problem is that the form is still being accepted even though we know the passwords don't match.
     """
-    return dict(form = form)
+    """
+    exposes:
+    http://..../[app]/default/user/login
+    http://..../[app]/default/user/logout
+    http://..../[app]/default/user/register
+    http://..../[app]/default/user/profile
+    http://..../[app]/default/user/retrieve_password
+    http://..../[app]/default/user/change_password
+    http://..../[app]/default/user/manage_users (requires membership in
+    http://..../[app]/default/user/bulk_register
+    use @auth.requires_login()
+        @auth.requires_membership('group name')
+        @auth.requires_permission('read','table name',record_id)
+    to decorate functions that need access control
+    """
+    return dict(form = auth())
 
 def matches():
 

@@ -144,3 +144,59 @@ success!
 success!
 success!
 success!
+timestamp: 2015-12-05T23:39:29.914289
+ALTER TABLE person ADD same_pw CHAR(512);
+success!
+timestamp: 2015-12-05T23:39:29.922472
+CREATE TABLE chat(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender CHAR(512),
+    receiver CHAR(512),
+    body CHAR(512),
+    seen CHAR(512),
+    sent CHAR(512)
+);
+success!
+timestamp: 2015-12-05T23:39:29.926316
+CREATE TABLE email(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender CHAR(512),
+    receiver CHAR(512),
+    body CHAR(512),
+    subject CHAR(512),
+    seen CHAR(512),
+    sent CHAR(512)
+);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
