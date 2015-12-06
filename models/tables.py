@@ -21,12 +21,12 @@ db.define_table('person',
                 Field('about_me', 'text'),
                 Field('interests', 'text'),
                 Field('major', 'string'),
-                Field('college', requires=IS_IN_SET(['Nine', 'Ten', 
-                                                    'Crown', 'Merrill', 
-                                                    'Stevenson', 'Cowell',
-                                                    'Porter', 'Kresge',
-                                                    'Oakes','Eight',
-                                                    'Off Campus'])),
+                #Field('college', requires=IS_IN_SET(['Nine', 'Ten', 
+                                                    #'Crown', 'Merrill', 
+                                                    #'Stevenson', 'Cowell',
+                                                    #'Porter', 'Kresge',
+                                                    #'Oakes','Eight',
+                                                    #'Off Campus'])),
                 )
 
 # Chat Table
