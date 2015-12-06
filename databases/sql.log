@@ -493,4 +493,153 @@ success!
 success!
 success!
 success!
+<<<<<<< Updated upstream
+success!
+=======
+>>>>>>> Stashed changes
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-12-06T04:40:07.261371
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512),
+    birthday DATE,
+    Gender CHAR(512),
+    Seeking_a CHAR(512)
+);
+timestamp: 2015-12-06T04:40:08.382479
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512),
+    birthday DATE,
+    Gender CHAR(512),
+    Seeking_a CHAR(512)
+);
+success!
+success!
+success!
+timestamp: 2015-12-06T04:42:12.595376
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512),
+    reset_password_key CHAR(512),
+    registration_id CHAR(512),
+    birthday DATE,
+    Gender CHAR(512),
+    Seeking_a CHAR(512)
+);
+success!
+timestamp: 2015-12-06T04:42:36.192435
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2015-12-06T04:42:36.195862
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2015-12-06T04:42:36.197876
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id INTEGER REFERENCES auth_group (id) ON DELETE CASCADE  ,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2015-12-06T04:42:36.199716
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2015-12-06T04:42:36.201503
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+timestamp: 2015-12-06T04:42:36.205353
+CREATE TABLE person(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    image CHAR(512),
+    about_me TEXT,
+    interests TEXT,
+    major CHAR(512),
+    college CHAR(512)
+);
+success!
+timestamp: 2015-12-06T04:42:36.207348
+CREATE TABLE chat(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender CHAR(512),
+    receiver CHAR(512),
+    body CHAR(512),
+    seen CHAR(512),
+    sent CHAR(512)
+);
+success!
+timestamp: 2015-12-06T04:42:36.209077
+CREATE TABLE email(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender CHAR(512),
+    receiver CHAR(512),
+    body CHAR(512),
+    subject CHAR(512),
+    seen CHAR(512),
+    sent CHAR(512)
+);
 success!
