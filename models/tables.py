@@ -15,24 +15,21 @@
 ## >>> for row in rows: print row.id, row.myfield
 #########################################################################
 
+#Additional info to show on Personal Profile
 db.define_table('person',
-                Field('name', requires=IS_NOT_EMPTY()),
-                Field('birthday', 'date', requires=IS_DATE(format=T('%Y-%m-%d'),
-                        error_message='must be YYYY-MM-DD!')),
-                Field('gender', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
-                Field('look_for', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
-                Field('email', requires = IS_EMAIL(error_message='invalid email!')),
-                Field('password', 'password', requires=IS_NOT_EMPTY()),
-                Field('verify_password', 'password', requires=IS_NOT_EMPTY()),
-                Field('same_pw', default=False),
+                Field('about_me', 'text'),
+                Field('interests', 'text'),
+                Field('ethnicity', 'text'),
+                Field('major', 'string'),
+                Field('college', requires=IS_IN_SET(['Nine', 'Ten', 
+                                                    'Crown', 'Merrill', 
+                                                    'Stevenson', 'Cowell',
+                                                    'Porter', 'Kresge',
+                                                    'Oakes','Eight',
+                                                    'Off Campus'])),
+                Field('do_you_smoke', 'boolean'),
+                Field('do_you_drink', 'boolean'),
                 )
-db.person.same_pw.readable = db.person.same_pw.writable = False
-
-def same_pw(form):
-    if form.vars.password != None and form.vars.password == form.vars.verify_password:
-        form.vars.same_pw = True
-    else:
-        form.errors.password = 'Passwords did not match!'
 
 # Chat Table
 # Will be used to hold chat messages for IMs.

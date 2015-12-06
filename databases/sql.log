@@ -200,3 +200,88 @@ success!
 success!
 success!
 success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-12-06T00:50:37.891648
+ALTER TABLE person ADD last_name CHAR(512);
+timestamp: 2015-12-06T00:50:37.896887
+ALTER TABLE person ADD fist_name CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-12-06T01:00:38.224886
+ALTER TABLE person ADD seeling_a CHAR(512);
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-12-06T01:01:09.085887
+ALTER TABLE auth_user ADD skype CHAR(512);
+success!
+success!
+timestamp: 2015-12-06T01:02:34.423168
+ALTER TABLE auth_user ADD gender CHAR(512);
+success!
+success!
+timestamp: 2015-12-06T01:09:25.111876
+ALTER TABLE auth_user ADD seeking_a CHAR(512);
+success!
+success!
+timestamp: 2015-12-06T01:10:10.356787
+ALTER TABLE auth_user ADD birthday DATE;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-12-06T01:47:37.906078
+ALTER TABLE person ADD interests TEXT;
+timestamp: 2015-12-06T01:47:37.913048
+ALTER TABLE person ADD major CHAR(512);
+timestamp: 2015-12-06T01:47:37.914220
+ALTER TABLE person ADD do_you_drink CHAR(1);
+timestamp: 2015-12-06T01:47:37.915403
+ALTER TABLE person ADD college CHAR(512);
+timestamp: 2015-12-06T01:47:37.917001
+ALTER TABLE person ADD do_you_smoke CHAR(1);
+timestamp: 2015-12-06T01:47:37.918522
+ALTER TABLE person ADD about_me TEXT;
+timestamp: 2015-12-06T01:47:37.920719
+ALTER TABLE person ADD ethnicity TEXT;
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

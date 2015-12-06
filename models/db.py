@@ -56,6 +56,10 @@ from gluon.tools import Auth, Service, PluginManager
 auth = Auth(db)
 service = Service()
 plugins = PluginManager()
+auth.settings.extra_fields['auth_user']= [Field('birthday', 'date', requires=IS_DATE(format=T('%Y-%m-%d'),
+                                                error_message='must be YYYY-MM-DD!')),
+                                            Field('Gender', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
+                                            Field('Seeking_a', requires=IS_IN_SET(['Male', 'Female', 'Other']))]
 
 ## create all tables needed by auth if not custom tables
 auth.define_tables(username=False, signature=False)
