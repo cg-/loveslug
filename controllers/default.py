@@ -7,11 +7,16 @@
 ## - user is required for authentication and authorization
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
+from random import randint
+tip_list =   [   "You miss 100% of the shots you don't take. -Wayne Gretzky",
+            "Shit happens. -Life",
+            "A fluke is one of the most common fish in the sea, so if you go fishing for a fluke, chances are you just might catch one. -Kevin Malone",
+        ]
 
 def index():
     #display
     profile = db().select(db.person.user_id, db.person.image)
-    return dict(form = auth(), profile=profile)
+    return dict(form = auth(), profile=profile, tip=selRandTip(tip_list))
 
 def matches():
 
@@ -21,7 +26,7 @@ def messages():
     '''This will return all emails that the user has sent or received -cole '''
     recMessages = db(db.email.receiver==auth.user_id).select()
     sentMessages = db(db.email.sender==auth.user_id).select()
-    return dict(recMessages=messages, sentMessages = sentMessages)
+    return dict(recMessages=messages, sentMessages = sentMessages, tip=selRandTip(tip_list))
 
 def chat():
     '''This will return all chats that the user has sent or received -cole '''
@@ -37,11 +42,11 @@ def myprofile():
     if thisprofile is None:
         session.flash = T('You have to update your profile first!')
         redirect(URL('default'))
-    return dict(thisprofile=thisprofile)
+    return dict(thisprofile=thisprofile, tip=selRandTip(tip_list))
 
 def profile():
     profile = db.person
-    return dict(profile=profile)
+    return dict(profile=profile, tip=selRandTip(tip_list))
 
 
 def editprofile():
@@ -60,18 +65,18 @@ def editprofile():
     if form.process().accepted:
         session.flash = T('Your profile has been updated')
         redirect(URL('default', 'editprofile'))
-    return dict(form=form)
+    return dict(form=form, tip=selRandTip(tip_list))
 
 
+def tips():
+    return dict(tip_list=tip_list)
 
-    """form = SQLFORM(db.person)
-    if form.process().accepted:
-        logger.info("Form Accepted")
-        redirect(URL('default', 'index'))
-    elif form.errors:
-        response.flash = "Form has errors"
-    
-    return dict(form = form)"""
+
+def selRandTip(tip_list):
+    x = randint(0, len(tip_list)-1)
+    return tip_list[x]
+
+
 
 def user():
     """
