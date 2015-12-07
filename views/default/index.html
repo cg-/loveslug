@@ -125,16 +125,9 @@
   <div class="row">
     <div class="col-md-3">
       <!-- DISPLAY IMAGE OF A MATCH HERE -->
-
-                {{ for users in profile: }}
-        <div class="user_images" align="center">
-            <table>
-
-                   <td>  <img src="{{=URL('default', 'download', args=users.image)}}" /> </td>
-
-                {{pass}}
-            </table>
-        </div>
+        {{ for users in profile: }}
+          <img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;" />
+        {{pass}}
     </div>
     <div class="col-md-3">
       <!-- DISPLAY IMAGE OF A MATCH HERE -->
