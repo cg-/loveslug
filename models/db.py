@@ -62,6 +62,8 @@ auth.settings.extra_fields['auth_user']= [Field('birthday', 'date', requires=IS_
                                             Field('Seeking_a', requires=IS_IN_SET(['Male', 'Female', 'Other']))]
 
 ## create all tables needed by auth if not custom tables
+
+auth.settings.register_next = URL(c='default',f='editprofile')
 auth.define_tables(username=False, signature=False)
 
 ## configure email

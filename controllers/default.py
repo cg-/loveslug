@@ -33,6 +33,9 @@ def settings():
 
 def myprofile():
     thisprofile = db(db.person).select()
+    if thisprofile is None:
+        session.flash = T('You have to update your profile first!')
+        redirect(URL('default'))
     return dict(thisprofile=thisprofile)
 
 def profile():
