@@ -29,6 +29,8 @@ db.define_table('person',
                                                     'Oakes','Eight',
                                                     'Off Campus'])),
                )
+
+db.person.id.readable = False
 # Chat Table
 # Will be used to hold chat messages for IMs.
 # - Cole

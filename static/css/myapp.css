@@ -19,3 +19,9 @@ div.title {
   font-size: 12px;
   font-weight: normal;
 }
+
+.user_images{
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
