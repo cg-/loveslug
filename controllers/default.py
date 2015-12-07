@@ -17,11 +17,18 @@ def matches():
     return dict()
 
 def messages():
+    '''This will return all emails that the user has sent or received -cole '''
+    recMessages = db(db.email.receiver==auth.user_id).select()
+    sentMessages = db(db.email.sender==auth.user_id).select()
+    return dict(recMessages=messages, sentMessages = sentMessages)
 
-    return dict()
+def chat():
+    '''This will return all chats that the user has sent or received -cole '''
+    recChats = db(db.chat.receiver==auth.user_id).select()
+    sentChats = db(db.chat.sender==auth.user_id).select()
+    return dict(sentChats=sentChats, recChats=recChats)
 
 def settings():
-
     return dict()
 
 def myprofile():
@@ -34,8 +41,18 @@ def profile():
 
 
 def editprofile():
-    profile = db.person
-    form = SQLFORM(db.person, record=profile)
+    profile = db(db.person.user_id == auth.user_id).select()
+    print profile
+    form = SQLFORM(db.person,
+                   fields=[
+                       'image',
+                       'about_me',
+                       'interests',
+                       'major',
+                       'college'
+                   ],
+                   record=profile)
+    form.vars.setdefault('user_id', default=auth.user)
     if form.process().accepted:
         session.flash = T('Your profile has been updated')
         redirect(URL('default', 'editprofile'))
@@ -91,4 +108,16 @@ def call():
 
 
 def reset_db():
-    db(db.person.id > 0).delete()
+    db.person.truncate()
+    db.chat.truncate()
+    db.email.truncate()
+    db.auth_user.truncate()
+    db.commit()
+    return "ok"
+
+def drop_db():
+    db.person.drop()
+    db.chat.drop()
+    db.email.drop()
+    db.commit()
+    return "ok"
