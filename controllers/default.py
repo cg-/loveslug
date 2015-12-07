@@ -41,7 +41,7 @@ def profile():
 
 
 def editprofile():
-    profile = db(db.person.user_id == auth.user_id).select()
+    profile = db(db.person.user_id == auth.user).select().first()
     print profile
     form = SQLFORM(db.person,
                    fields=[
@@ -52,7 +52,7 @@ def editprofile():
                        'college'
                    ],
                    record=profile)
-    form.vars.setdefault('user_id', default=auth.user)
+    form.vars.setdefault('user_id', auth.user)
     if form.process().accepted:
         session.flash = T('Your profile has been updated')
         redirect(URL('default', 'editprofile'))
