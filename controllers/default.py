@@ -8,15 +8,20 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 from random import randint
-tip_list =   [   "You miss 100% of the shots you don't take. -Wayne Gretzky",
-            "Shit happens. -Life",
-            "A fluke is one of the most common fish in the sea, so if you go fishing for a fluke, chances are you just might catch one. -Kevin Malone",
-        ]
+dateTips =  [   "You miss 100% of the shots you don't take. -Wayne Gretzky",
+                "Shit happens. -Life",
+                "A fluke is one of the most common fish in the sea, so if you go fishing for a fluke, chances are you just might catch one. -Kevin Malone",
+            ]
+
+profTips =  [   "People see your face before hellos. Be sure to take a good picture!",
+                "Keep it simple! No essays please!",
+                "What most interests you? What are your hobbies?",
+            ]
 
 def index():
     #display
     profile = db().select(db.person.user_id, db.person.image)
-    return dict(form = auth(), profile=profile, tip=selRandTip(tip_list))
+    return dict(form = auth(), profile=profile, tip=selRandTip(dateTips))
 
 def matches():
 
@@ -26,7 +31,7 @@ def messages():
     '''This will return all emails that the user has sent or received -cole '''
     recMessages = db(db.email.receiver==auth.user_id).select()
     sentMessages = db(db.email.sender==auth.user_id).select()
-    return dict(recMessages=messages, sentMessages = sentMessages, tip=selRandTip(tip_list))
+    return dict(recMessages=messages, sentMessages = sentMessages, tip=selRandTip(dateTips))
 
 def chat():
     '''This will return all chats that the user has sent or received -cole '''
@@ -42,11 +47,11 @@ def myprofile():
     if thisprofile is None:
         session.flash = T('You have to update your profile first!')
         redirect(URL('default'))
-    return dict(thisprofile=thisprofile, tip=selRandTip(tip_list))
+    return dict(thisprofile=thisprofile, tip=selRandTip(profTips))
 
 def profile():
     profile = db.person
-    return dict(profile=profile, tip=selRandTip(tip_list))
+    return dict(profile=profile, tip=selRandTip(profTips))
 
 
 def editprofile():
@@ -65,11 +70,11 @@ def editprofile():
     if form.process().accepted:
         session.flash = T('Your profile has been updated')
         redirect(URL('default', 'editprofile'))
-    return dict(form=form, tip=selRandTip(tip_list))
+    return dict(form=form, tip=selRandTip(profTips))
 
 
 def tips():
-    return dict(tip_list=tip_list)
+    return dict(profTips=profTips, dateTips=dateTips)
 
 
 def selRandTip(tip_list):

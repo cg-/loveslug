@@ -66,9 +66,16 @@
         </h5>
             <div>
             <span><img src="https://pbs.twimg.com/profile_images/569820079097802752/1uyMpI4w_400x400.jpeg" alt="Profile Picture" style="width:150px;height:150px;"/></span>
-                {{for tip in tip_list:}}
-                <h4><b>{{=tip}}</b></h4>
+                <h3 style="color: red"><strong>Dating Tips</strong></h3>
+                {{for tip in dateTips:}}
                 <hr>
+                <h4><b>{{=tip}}</b></h4>
+                {{pass}}
+                <hr><hr>
+                <h3 style="color: dodgerblue"><strong>Profile Tips</strong></h3>
+                {{for tip in profTips:}}
+                <hr>
+                <h4><b>{{=tip}}</b></h4>
                 {{pass}}
 
     <h1> . </h1>
