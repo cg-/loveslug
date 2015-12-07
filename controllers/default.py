@@ -76,12 +76,18 @@ def editprofile():
 def tips():
     return dict(profTips=profTips, dateTips=dateTips)
 
+def loadProfTips():
+    print "meow"
+    return response.json(dict(tip_dict=profTips))
 
 def selRandTip(tip_list):
     x = randint(0, len(tip_list)-1)
     return tip_list[x]
 
-
+def selRandProfTip():
+    print "woof"
+    x = randint(0, len(profTips)-1)
+    return profTips[x]
 
 def user():
     """

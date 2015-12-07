@@ -140,7 +140,14 @@
       <!-- DISPLAY IMAGE OF A MATCH HERE -->
     </div>
   </div>
-
+  <!-- RACTIVE -->
+  <div id="target"></div>
+  <script id="template" type="text/ractive">
+    <br>
+    <button class="btn btn-primary" style="color:white" on-click="changeTip">
+        {% tip_box %}
+    </button>
+  </script>
   <!-- TIPS -->
   <center>
     <div class="row" style="color: white">
@@ -151,3 +158,43 @@
 </div>
 
 {{pass}}
+
+<script>
+    $(function() {
+
+        // Ractive object
+        var MAIN = new Ractive({
+            el: '#target',
+            template: '#template',
+            delimiters: ['{%', '%}'],
+            tripleDelimiters: ['{%%', '%%}'],
+            data: {
+                tip_dict: {},
+                tip_box: "",
+            },
+        });
+        $.ajax("{{=URL('default','loadProfTips')}}",
+            {
+                method: 'POST',
+                success: function (data) {
+                    MAIN.set('tip_dict', data['tip_dict']);
+                }
+            }
+        );
+        function load_tip(){
+            $.ajax("{{=URL('default', 'selRandProfTip')}}",
+                {
+                    method: 'POST',
+                    success: function (data) {
+                        MAIN.set('tip_box', data);
+                    }
+                }
+            )
+        }
+        load_tip();
+        MAIN.on("changeTip", function(e){
+            load_tip();
+        });
+    });
+
+</script>
