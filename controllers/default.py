@@ -10,7 +10,8 @@
 
 def index():
     #display
-    return dict(form = auth())
+    profile = db().select(db.person.user_id, db.person.image)
+    return dict(form = auth(), profile=profile)
 
 def matches():
 
