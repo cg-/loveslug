@@ -2,61 +2,175 @@
 {{extend 'layout.html'}}
 
 <style>
-  body {
-    background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
-    background-size: 100%;
-  }
+    body {
+        background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
+        background-size: 100%;
+    }
 </style>
 
 
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-12">
-      <!-- NAVI BAR -->
-      <nav class="menubar avbar navbar-default" role="navigation">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-             <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-          </button> <a class="navbar-brand" href="#"><img src="http://i.imgur.com/BRPgVCW.png" alt="LoveSlugs"></a>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- NAVI BAR -->
+            <nav class="menubar avbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button> <a class="navbar-brand" href="#"><img src="http://i.imgur.com/BRPgVCW.png" alt="LoveSlugs"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <a href="../">HOME</a>
+                        </li>
+                        <li class="active">
+                            <a href="messages.html">MESSAGES</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="profile.html" class="dropdown-toggle" data-toggle="dropdown">PROFILE</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="myprofile.html">View Profile</a>
+                                </li>
+                                <li>
+                                    <a href="editprofile.html">Edit Profile</a>
+                                </li>
+                                <li>
+                                    <a href="settings.html">Settings</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="tips.html">TIPS</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="../default/user/logout">Log Out</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="../">HOME</a>
-            </li>
-            <li class="active">
-              <a href="messages.html">MESSAGES</a>
-            </li>
-            <li class="dropdown">
-               <a href="profile.html" class="dropdown-toggle" data-toggle="dropdown">PROFILE</a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="myprofile.html">View Profile</a>
-                </li>
-                <li>
-                  <a href="editprofile.html">Edit Profile</a>
-                </li>
-                <li>
-                  <a href="settings.html">Settings</a>
-                </li>
-              </ul>
-            </li>
-            <li><a href="tips.html">TIPS</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="../default/user/logout">Log Out</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
     </div>
 
+    <!-- TIPS -->
+    <center>
+        <div class="row" style="color: white">
+            <strong>{{=tip}}</strong>
+        </div>
+    </center>
 
-  <!-- TIPS -->
-  <center>
-    <div class="row" style="color: white">
-      <strong>{{=tip}}</strong>
-    </div>
-  </center>
-  </div>
+    <center>
+        <div id="message-client"></div>
+    </center>
+
+<script id="message-template" type="text/ractive">
+    <button on-click="test">
+    Test
+    </button>
+    <h2 style="color:white">Received Messages</h2>
+    <hr>
+
+    <table class="message-table">
+        <tr>
+            <td class="message-table-head">From</td>
+            <td class="message-table-head">Subject</td>
+        </tr>
+
+    {% #each rec_messages %}
+        <tr>
+            <td>{% sender %}</td>
+            <td>{% subject %}</td>
+        </tr>
+    {% /each %}
+    </table>
+
+
+
+    <h2 style="color:white">Sent Messages</h2>
+    <hr>
+
+    <table class="message-table">
+        <tr>
+            <td class="message-table-head">To</td>
+            <td class="message-table-head">Subject</td>
+        </tr>
+
+    {% #each sent_messages %}
+        <tr>
+            <td>{% receiver %}</td>
+            <td>{% subject %}</td>
+        </tr>
+    {% /each %}
+    </table>
+</script>
+
+<script>
+    $(function() {
+        // Ractive object
+        var RACTIVE = new Ractive({
+            el: '#message-client',
+            template: '#message-template',
+            delimiters: ['{%', '%}'],
+            tripleDelimiters: ['{%%', '%%}'],
+            data: {
+                sent_messages: '',
+                rec_messages: '',
+            },
+        });
+
+        RACTIVE.on("test", function(e){
+            var receiver = 1;
+            var body = "test message";
+            var subject = "test subject";
+
+
+            $.ajax("{{=URL('default', 'send_message', user_signature=True)}}",
+                    {
+                        data: {
+                            message_id: generateUUID(),
+                            receiver: receiver, // request.vars.msg
+                            body: body, // request.vars.is_draft
+                            subject: subject // request.vars.msg_id
+                        },
+                        method: 'POST',
+                        success: function() {
+                            updateMessages();
+                        },
+                        error: function() {}
+                    }
+            );
+        });
+
+        var updateMessages = function(){
+            $.ajax("{{=URL('default', 'get_messages', user_signature=True)}}",
+                    {
+                        method: 'POST',
+                        success: function (data) {
+                            RACTIVE.set('sent_messages', data['sent_messages']);
+                            RACTIVE.set('rec_messages', data['rec_messages']);
+                        }
+                    }
+            );
+        };
+
+        // http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+        function generateUUID(){
+            var d = new Date().getTime();
+            if(window.performance && typeof window.performance.now === "function"){
+                d += performance.now();; //use high-precision timer if available
+            }
+            var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+                var r = (d + Math.random()*16)%16 | 0;
+                d = Math.floor(d/16);
+                return (c=='x' ? r : (r&0x3|0x8)).toString(16);
+            });
+            return uuid;
+        }
+
+        updateMessages();
+
+        setInterval(updateMessages, 5000);
+    });
+
+</script>

@@ -20,8 +20,20 @@ div.title {
   font-weight: normal;
 }
 
-.user_images{
-  width: 10px;
-  height: 10px;
-  display: inline-block;
+/* line 21, ../sass/_main.scss */
+.message-table {
+  border: 1px solid white;
+  width: 75%;
+  color: white;
+  font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+}
+/* line 22, ../sass/_main.scss */
+.message-table th, .message-table td {
+  padding: 10px;
+}
+/* line 25, ../sass/_main.scss */
+.message-table .message-table-head {
+  font-weight: bolder;
 }

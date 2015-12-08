@@ -16,8 +16,7 @@
 #########################################################################
 
 #Additional info to show on Personal Profile
-db.define_table('person',
-                Field('user_id', db.auth_user, default=auth.user),
+db.define_table('person', Field('user_id', db.auth_user, default=auth.user),
                 Field('image', 'upload'),
                 Field('about_me', 'text'),
                 Field('interests', 'text'),
@@ -40,6 +39,7 @@ db.define_table('chat',
                 Field('body', requires=IS_NOT_EMPTY()),     # Text in chat message
                 Field('seen', requires=IS_NOT_EMPTY()),     # Has it been seen?
                 Field('sent', requires=IS_NOT_EMPTY()),# Time it was sent
+                Field('message_id', requires=IS_NOT_EMPTY()),# ID of message
                 )
 
 # Message Table
@@ -52,4 +52,5 @@ db.define_table('email',
                 Field('subject', requires=IS_NOT_EMPTY()),  # Subject of message
                 Field('seen', requires=IS_NOT_EMPTY()),     # Has it been seen?
                 Field('sent', requires=IS_NOT_EMPTY()),# Time it was sent
+                Field('message_id', requires=IS_NOT_EMPTY()),# ID of message
                 )

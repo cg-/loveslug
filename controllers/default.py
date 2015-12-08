@@ -8,6 +8,8 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 from random import randint
+import datetime
+
 dateTips =  [   "You miss 100% of the shots you don't take. -Wayne Gretzky",
                 "Shit happens. -Life",
                 "A fluke is one of the most common fish in the sea, so if you go fishing for a fluke, chances are you just might catch one. -Kevin Malone",
@@ -24,14 +26,51 @@ def index():
     return dict(form = auth(), profile=profile, tip=selRandTip(dateTips))
 
 def matches():
-
     return dict()
 
 def messages():
+    return dict(tip=selRandTip(dateTips))
+
+def get_messages():
     '''This will return all emails that the user has sent or received -cole '''
-    recMessages = db(db.email.receiver==auth.user_id).select()
-    sentMessages = db(db.email.sender==auth.user_id).select()
-    return dict(recMessages=messages, sentMessages = sentMessages, tip=selRandTip(dateTips))
+    rec_rows = db(db.email.receiver==auth.user_id).select()
+    print rec_rows
+
+    d1 = {r.message_id: {
+        'sender':r.sender,
+        'receiver':r.receiver,
+        'body':r.body,
+        'subject':r.subject,
+        'seen':r.seen,
+        'sent':r.sent}
+          for r in rec_rows}
+
+    sent_rows = db(db.email.sender==auth.user_id).select()
+    print sent_rows
+
+    d2 = {r.message_id: {
+        'sender':r.sender,
+        'receiver':r.receiver,
+        'body':r.body,
+        'subject':r.subject,
+        'seen':r.seen,
+        'sent':r.sent }
+          for r in sent_rows}
+
+    return response.json(dict(rec_messages=d1, sent_messages=d2))
+
+
+def send_message():
+    '''Sends a new message '''
+    db.email.update_or_insert((db.email.message_id == request.vars.message_id),
+            message_id=request.vars.message_id,
+            sender=auth.user_id,
+            receiver=request.vars.receiver,
+            body=request.vars.body,
+            subject=request.vars.subject,
+            seen=False,
+            sent=datetime.datetime.now())
+    return "ok"
 
 def chat():
     '''This will return all chats that the user has sent or received -cole '''

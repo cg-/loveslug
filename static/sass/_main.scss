@@ -18,3 +18,17 @@ div.title {
 	font-weight: normal;
 }
 
+.message-table{
+	th, td{
+		padding: 10px;
+	}
+	.message-table-head{
+		font-weight: bolder;
+	}
+	border: 1px solid white;
+	width: 75%;
+	color: white;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+}
