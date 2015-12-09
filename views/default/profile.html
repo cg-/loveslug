@@ -3,64 +3,22 @@
 
 <body class="background">
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- NAVI BAR -->
-            <nav class="menubar avbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-                    </button> <a class="navbar-brand" href="#"><img src="http://i.imgur.com/BRPgVCW.png" alt="LoveSlugs"></a>
-                </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <a href="../">HOME</a>
-                        </li>
-                        <li>
-                            <a href="messages.html">MESSAGES</a>
-                        </li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">PROFILE</a>
-                            <ul class="dropdown-menu">
-                                <li class="active">
-                                    <a href="myprofile.html">View Profile</a>
-                                </li>
-                                <li>
-                                    <a href="editprofile.html">Edit Profile</a>
-                                </li>
-                                <li>
-                                    <a href="settings.html">Settings</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a href="tips.html">TIPS</a></li>
-                    </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="../default/user/logout">Log Out</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-md-4">
         </div>
-        <div class="title col-md-4">
+        <div class="title col-md-4" style="width:100%">
             <!-- PAGE HEADER -->
             <center>
                 <h3>
-                    MY PROFILE
+                    {{=thisprofile[-1].your_name}}'s Profile
                 </h3>
                 <h5>
-                    <div id="message-box"></div>
+                    <div id="message-box" style="width:75%"></div>
                     <hr>
                 </h5>
                 <div>
-                    <h4><b>My Picture:</b></h4>
+                    <h4><b>{{=thisprofile[-1].your_name}}'s Picture:</b></h4>
                     <span><img src="{{=URL('default', 'download', args=thisprofile[-1].image)}}" alt="Profile Picture" style="width:150px;height:150px;"/></span>
                     <h4><b>Name:</b></h4>
                     <span><h5>{{=thisprofile[-1].your_name}}</h5></span>
@@ -91,16 +49,16 @@
 </body>
 
 <script id="message-template" type="text/ractive">
-    <button on-click="clicked-message" style="background-color: transparent;color: white">Message this user</button>
+    <button on-click="clicked-message" style="background-color: transparent;color: white">Message {{=thisprofile[-1].your_name}}</button>
     {% #if show_message_edit %}
     <h2>Send a Message</h2>
-    <table>
+    <table style="width: 100%">
         <tr>
             <td>
                 Subject:
             </td>
             <td>
-                <textarea on-blur="update-subject" id="subject-field" rows=1 style="width: 75%; background-color: transparent; color: white"></textarea>
+                <textarea on-blur="update-subject" id="subject-field" rows=1 style="width: 100%; background-color: transparent; color: white"></textarea>
             </td>
         </tr>
         <tr>
@@ -108,7 +66,7 @@
                 Body:
             </td>
             <td>
-                <textarea on-blur="update-text" id="text-field" rows=18 style="width: 75%; background-color: transparent; color: white"></textarea>
+                <textarea on-blur="update-text" id="text-field" rows=18 style="width: 100%; background-color: transparent; color: white"></textarea>
             </td>
         </tr>
     </table>

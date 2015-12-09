@@ -77,6 +77,55 @@
     {{end}}
     <!-- Main ========================================= -->
     <!-- Begin page content -->
+    {{if auth.user_id is None:}}
+    {{else:}}
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- NAVI BAR -->
+            <nav class="menubar avbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                    </button> <a class="navbar-brand" href="#"><img src="http://i.imgur.com/BRPgVCW.png" alt="LoveSlugs"></a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            {{=A('HOME', _href=URL('index'))}}
+                        </li>
+                        <li>
+                            {{=A('MESSAGES', _href=URL('messages'))}}
+                        </li>
+                        <li class="dropdown">
+                            <a href="profile.html" class="dropdown-toggle" data-toggle="dropdown">PROFILE</a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    {{=A('View Profile', _href=URL('myprofile'))}}
+                                </li>
+                                <li>
+                                    {{=A('Edit Profile', _href=URL('editprofile'))}}
+                                </li>
+                                <li>
+                                    {{=A('Settings', _href=URL('settings'))}}
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            {{=A('TIPS', _href=URL('tips'))}}
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            {{=A('Log Out', _href=URL('user', args=['logout']))}}
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    {{pass}}
+
     <div class="container-fluid main-container">
       {{if left_sidebar_enabled:}}
         <div class="col-md-3 left-sidebar">
