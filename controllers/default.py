@@ -83,7 +83,7 @@ def settings():
     return dict()
 
 def myprofile():
-    thisprofile = db(db.person).select()
+    thisprofile = db(db.person.user_id == auth.user).select()
     if thisprofile is None:
         session.flash = T('You have to update your profile first!')
         redirect(URL('default'))
