@@ -170,6 +170,8 @@
             var body = RACTIVE.get('reply_text');
             console.log(to + subject + body);
             sendMessage(to, subject, body);
+            RACTIVE.set('displayed_message', '');
+            RACTIVE.set('show_message_list', true);
         });
 
         RACTIVE.on("read_rec", function(e){
