@@ -128,7 +128,7 @@
             <table>
             <tr>
                 <td><img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;" /></td>
-                <h3>{{=users.your_name}}</h3>
+                <h3>{{=A(users.your_name, _href=URL('default', 'profile', args=[users.user_id]))}}</h3>
             </tr>
             </table>
         </div>

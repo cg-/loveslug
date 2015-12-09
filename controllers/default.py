@@ -24,10 +24,12 @@ def index():
     #display
     profile = db().select(db.person.user_id, db.person.image, db.person.your_name)
 
-    return dict(form = auth(), profile=profile, tip=selRandTip(dateTips))
+    return dict(form=auth(), profile=profile, tip=selRandTip(dateTips))
 
 def matches():
-    return dict()
+    thisprofile = db(db.person.user_id == auth.user).select()
+    matches = db.select(db.person.seeking_a == this.profile.gender)
+    return dict(thisprofile=thisprofile, matches=matches)
 
 def messages():
     return dict(tip=selRandTip(dateTips))
@@ -90,8 +92,10 @@ def myprofile():
     return dict(thisprofile=thisprofile, tip=selRandTip(profTips))
 
 def profile():
-    profile = db.person
-    return dict(profile=profile, tip=selRandTip(profTips))
+
+    profile_id = db.person(request.args(0))
+    thisprofile = db(db.person.user_id == profile_id).select()
+    return dict(thisprofile=thisprofile, tip=selRandTip(profTips))
 
 
 def editprofile():

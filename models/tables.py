@@ -33,7 +33,6 @@ db.define_table('person',
                                                     'Porter', 'Kresge',
                                                     'Oakes','Eight',
                                                     'Off Campus'])),
-                Field('wutmate'),
                )
 
 db.person.id.readable = False
