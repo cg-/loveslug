@@ -1,13 +1,7 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
-<style>
-  body {
-    background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
-    background-size: 100%;
-  }
-</style>
-
+<body class="background">
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
@@ -44,7 +38,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li>
-              <a href="#">Log Out</a>
+              <a href="../default/user/logout">Log Out</a>
             </li>
           </ul>
         </div>
@@ -90,4 +84,5 @@
     </div>
     <div class="col-md-4">
     </div>
+  </body>
  

@@ -1,13 +1,7 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
-<style>
-    body {
-        background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
-        background-size: 100%;
-    }
-</style>
-
+<body class="background">
 
 <div class="container-fluid">
     <div class="row">
@@ -53,6 +47,7 @@
         </div>
     </div>
 
+
     <!-- TIPS -->
     <center>
         <div class="row" style="color: white">
@@ -63,7 +58,7 @@
     <center>
         <div id="message-client"></div>
     </center>
-
+</body>
 <script id="message-template" type="text/ractive">
     <button on-click="test">
     Test

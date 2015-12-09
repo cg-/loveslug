@@ -1,12 +1,8 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
-<style>
-  body {
-    background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
-    background-size: 100%;
-  }
-</style>
+<body class="background">
+
 
 <!-- IF USER IS NOT LOGGED IN, SHOW REGISTER PAGE-->
 {{if auth.user_id is None:}}
@@ -168,6 +164,8 @@
 </div>
 
 {{pass}}
+
+</div>
 
 <script>
     $(function() {
