@@ -10,14 +10,23 @@
 from random import randint
 import datetime
 
-dateTips =  [   "You miss 100% of the shots you don't take. -Wayne Gretzky",
-                "Shit happens. -Life",
-                "A fluke is one of the most common fish in the sea, so if you go fishing for a fluke, chances are you just might catch one. -Kevin Malone",
+dateTips =  [   "You miss 100% of the shots you don't take... [Wayne Gretzky]",
+                "Shit happens... [Life]",
+                "A fluke is one of the most common fish in the sea, so if you go fishing for a fluke, chances are you just might catch one... [Kevin Malone]",
+                "To find a prince, you gotta kiss some toads... [Foxy Brown]",
+                "You must search well enough, to find the answers... [Lailah Gifty Akita]",
+                "To live, to TRULY live, we must be willing to RISK... [Mandy Hale]", 
+                "It's hard to believe in coincidence, but it's even harder to believe in anything else... [John Green]",
+                "The doors will be opened to those who are bold enough to knock...",
+                "Life has no remote. Get up and change it yourself...",
+                "All glory comes from a daring to begin...",
+                "You are not born a winner; you are not born a loser. You are born a chooser..."
             ]
 
-profTips =  [   "People see your face before hellos. Be sure to take a good picture!",
-                "Keep it simple! No essays please!",
+profTips =  [   "People see your image before hellos. Be sure to take a good picture!",
+                "Keep it simple and mysterious, yet exciting!",
                 "What most interests you? What are your hobbies?",
+                "Don't leave your profile empty!",
             ]
 
 def index():

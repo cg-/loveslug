@@ -57,65 +57,42 @@
 <!-- IF USER IS LOGGED IN, SHOW DAILY MATCHES-->
 {{else:}}
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="title col-md-4">
-      <!-- PAGE HEADER -->
-      <center>
-        <h3>
-        DAILY MATCHES
-        </h3>
-        <h5>
-          Now is your chance to make a move!
-        </h5>
-      </center>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-3">
-      <!-- DISPLAY IMAGE OF A MATCH HERE -->
+<div class="row">
+    <div class="title col-md-12">
+      <center><h1>
+        DAILY HOTTIES
+      </h1></center><br>
+      <blockquote>
+        <center><p>
+        <!-- TIPS -->
+         <small>{{=tip}} </small>
+        </p> 
+      </blockquote></center><br><br>
 
-        {{ for users in profile: }}
-        <div class="matchpictures" >
-            <table>
-            <tr>
-                <td><img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;" /></td>
-                <h3>{{=A(users.your_name, _href=URL('default', 'profile', args=[users.user_id]))}}</h3>
-            </tr>
-            </table>
+
+        <div class="row">
+
+          <div class="col-md-12">
+            {{ for users in profile: }}
+            <div class="col-md-2 dailyhottie" align ="center">                  
+              <br><a href="{{=URL('default', 'profile', args=users.user_id)}}"><img src="{{=URL('default', 'download', args=users.image)}}" style="width:210px;height:210px;border:1px solid #000000"/><br>
+          </div>{{pass}}
+          <br>
+          
         </div>
-        {{pass}}
-
-
+      </div>
     </div>
-    <div class="col-md-3">
-      <!-- DISPLAY IMAGE OF A MATCH HERE -->
-    </div>
-    <div class="col-md-3">
-      <!-- DISPLAY IMAGE OF A MATCH HERE -->
-    </div>
-    <div class="col-md-3">
-      <!-- DISPLAY IMAGE OF A MATCH HERE -->
-    </div>
-  </div>
+  </div>  
+</div>
   <!-- RACTIVE -->
-  <div id="target"></div>
+  <br><br><div id="target"></div>
   <script id="template" type="text/ractive">
     <br>
-    <button class="btn btn-primary" style="color:white" on-click="changeTip">
+   <center> <button class="btn btn-primary" style="color:white" on-click="changeTip">
         {% tip_box %}
-    </button>
+    </button></center>
   </script>
-  <!-- TIPS -->
-  <center>
-    <div class="row" style="color: white">
-      <strong>{{=tip}}</strong>
-    </div>
-  </center>
+
 
 </div>
 

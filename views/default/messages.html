@@ -2,30 +2,34 @@
 {{extend 'layout.html'}}
 
 <body class="background">
-
-<div class="container-fluid">
-    <!-- TIPS -->
-    <center>
-        <div class="row" style="color: white">
-            <strong>{{=tip}}</strong>
+    <div class="container-fluid">
+        <div class="title col-md-12">
+            <center><h1>
+              MESSAGE BOX
+            </h1></center><br>
+            <blockquote>
+              <center><p>
+              <!-- TIPS -->
+               <small>{{=tip}} </small>
+              </p> 
+            </blockquote></center><br><br>
+            <br><br>
         </div>
-    </center>
 
-    <center>
-        <div id="message-client"></div>
-    </center>
-</div>
+        <center>
+            <div id="message-client"></div>
+        </center>
+    </div>
 </body>
 
 <script id="message-template" type="text/ractive">
     {% #if show_message_list %}
-    <h2 style="color:white">Received Messages</h2>
-    <hr>
-
-    <table class="message-table">
+    <h4 style="color:white">RECEIVED</h4>
+    <br>
+    <table class="message-table" style="width:30%">
         <tr>
-            <td class="message-table-head" style="width: 30%">From</td>
-            <td class="message-table-head">Subject</td>
+            <td class="message-table-head" style="width: 30%">FROM</td>
+            <td class="message-table-head">SUBJECT</td>
         </tr>
 
     {% #each rec_messages %}
@@ -35,14 +39,13 @@
         </tr>
     {% /each %}
     </table>
-
-    <h2 style="color:white">Sent Messages</h2>
-    <hr>
-
-    <table class="message-table">
+    <br><br><br>
+    <h4 style="color:white">SENT</h4>
+    <br>
+    <table class="message-table" style="width:30%">
         <tr>
-            <td class="message-table-head" style="width: 30%">To</td>
-            <td class="message-table-head">Subject</td>
+            <td class="message-table-head" style="width: 30%">TO</td>
+            <td class="message-table-head">SUBJECT</td>
         </tr>
 
     {% #each sent_messages %}
@@ -54,13 +57,10 @@
     </table>
 
     {% else %}
-    <button on-click="back">
-    Back
-    </button>
     <br />
     <br />
     <center>
-    <table class="message-table">
+    <table class="message-table" style="width:30%">
         <tr>
             <td class="message-table-head" style="width: 30%">From</td>
             <td>{% displayed_message.sender %}</td>
@@ -82,19 +82,18 @@
     <br />
     <br />
     {% #if displayed_is_rec %}
-    <h2>Reply</h2>
-    <textarea on-blur="update-reply" id="reply-field" rows=18 style="width: 75%; background-color: transparent; color: white"></textarea>
+    <h4 style="color:white">REPLY<br></h4>
+    <textarea on-blur="update-reply" id="reply-field" rows=18 style="width: 30%; height: 150px; background-color: transparent; color: white"></textarea>
     <br />
-    <button on-click="send-reply">
+    <button on-click="send-reply" style="background-color: transparent;color: white">
     Send
     </button>
     {% /if %}
-    <br />
-    <br />
-    <button on-click="back">
+    <button on-click="back" style="background-color: transparent;color: white">
     Back
     </button>
     {% /if %}
+    <br><br><br><br>
 </script>
 
 <script>

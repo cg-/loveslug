@@ -2,63 +2,59 @@
 {{extend 'layout.html'}}
 
 <body class="background">
-<div class="container-fluid">
-
-    <div class="row">
-        <div class="col-md-4">
-        </div>
-        <div class="title col-md-4" style="width:100%">
-            <!-- PAGE HEADER -->
-            <center>
-                <h3>
-                    {{=thisprofile[-1].your_name}}'s Profile
-                </h3>
-                <h5>
-                    <div id="message-box" style="width:75%"></div>
-                    <hr>
-                </h5>
-                <div>
-                    <h4><b>{{=thisprofile[-1].your_name}}'s Picture:</b></h4>
-                    <span><img src="{{=URL('default', 'download', args=thisprofile[-1].image)}}" alt="Profile Picture" style="width:150px;height:150px;"/></span>
-                    <h4><b>Name:</b></h4>
-                    <span><h5>{{=thisprofile[-1].your_name}}</h5></span>
-                    <h4><b>Birthday:</b></h4>
-                    <span><h5>{{=thisprofile[-1].birthday}}</h5></span>
-                    <h4><b>Gender:</b></h4>
-                    <span><h5>{{=thisprofile[-1].gender}}</h5></span>
-                    <h4><b>About Me:</b></h4>
-                    <span><h5>{{=(thisprofile[-1].about_me)}}</h5></span>
-                    <h4><b>Interests:</b></h4>
-                    <span><h5>{{=thisprofile[-1].interests}}</h5></span>
-                    <h4><b>Major:</b></h4>
-                    <span><h5>{{=thisprofile[-1].major}}</h5></span>
-                    <h4><b>Location:</b></h4>
-                    <span><h5>{{=thisprofile[-1].college}}</h5></span>
-                {{pass}}
-
-                    <!-- TIPS -->
-
-                    <h1> . </h1>
-                </div>
-                <div class="col-md-4">
-                </div>
-            </center>
-        </div>
+  <div class="container-fluid">
+    <div class="title col-md-12">
+      <center><h1>
+        PUBLIC PROFILE
+      </h1></center><br>
+      <blockquote>
+        <center><p>
+        <!-- TIPS -->
+         <small>{{=tip}} </small>
+        </p> 
+      </blockquote></center><br><br>
+      <br>
+      <br>
     </div>
-</div>
+    <div class="row">
+      <div class="col-md-4">
+      </div>
+      <div class="form col-md-4">
+        <center>
+          <h3>{{=thisprofile[-1].your_name}}</h3>
+          <span><img src="{{=URL('default', 'download', args=thisprofile[-1].image)}}" alt="Profile Picture" style="width:300px;height:300px;border:1px solid #000000;"/></span><br>
+          <br><br>
+          <table border="0" style="width:80%">
+            <tr><td>Birthday:</td><td>{{=thisprofile[-1].birthday}}</td> </tr>
+            <tr><td>Gender:</td><td>{{=thisprofile[-1].gender}}</td></tr>
+            <tr><td>Seeking a:</td><td>{{=thisprofile[-1].seeking_a}}</td></tr>
+            <tr><td>About Me:</td><td>{{=(thisprofile[-1].about_me)}}</td></tr>
+            <tr><td>Interests:</td><td>{{=thisprofile[-1].interests}}</td></tr>
+            <tr><td>Major:</td><td>{{=thisprofile[-1].major}}</td></tr>
+            <tr><td>Location:</td><td>{{=thisprofile[-1].college}}</td></tr>
+            {{pass}}
+          </table>
+          <br><br>
+          <div id="message-box" style="width:75%"></div>   
+        </center>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
 </body>
 
 <script id="message-template" type="text/ractive">
     <button on-click="clicked-message" style="background-color: transparent;color: white">Message {{=thisprofile[-1].your_name}}</button>
     {% #if show_message_edit %}
-    <h2>Send a Message</h2>
+    <h5><br><br>Send a Message</h5>
     <table style="width: 100%">
         <tr>
             <td>
                 Subject:
             </td>
             <td>
-                <textarea on-blur="update-subject" id="subject-field" rows=1 style="width: 100%; background-color: transparent; color: white"></textarea>
+                <textarea on-blur="update-subject" id="subject-field" rows=1 style="width: 100%; resize: none;  background-color: transparent; color: white"></textarea>
             </td>
         </tr>
         <tr>
@@ -66,7 +62,7 @@
                 Body:
             </td>
             <td>
-                <textarea on-blur="update-text" id="text-field" rows=18 style="width: 100%; background-color: transparent; color: white"></textarea>
+                <textarea on-blur="update-text" id="text-field" rows=18 style="width: 100%; height: 80px; resize: none; background-color: transparent; color: white"></textarea>
             </td>
         </tr>
     </table>
@@ -74,8 +70,6 @@
     <button on-click="send-reply" style="background-color: transparent;color: white">
     Send
     </button>
-    <br />
-    <br />
     <button on-click="back" style="background-color: transparent;color: white">
     Back
     </button>

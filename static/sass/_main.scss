@@ -4,13 +4,18 @@ div.form {
 	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
 	font-size: 12px;
 	font-weight: normal;
-	padding: 10px;
-	margin: 40px;
-	@include border-radius(20px);
+	padding: 50px;
+	margin: 1px;
+	@include border-radius(50px);
 	border: 1px solid;
 }
 
-
+div.profiletext {
+	color: white;
+	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+}
 div.title {
 	color: white;
 	font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;

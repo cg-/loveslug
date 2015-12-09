@@ -3,48 +3,46 @@
 
 <body class="background">
 <div class="container-fluid">
-
-  <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="title col-md-4">
-      <!-- PAGE HEADER -->
-      <center>
-        <h3>
-        MY PROFILE
-        </h3>
-        <h5>
-          <hr>
-        </h5>
-            <div>
-                <h4><b>My Picture:</b></h4>
-            <span><img src="{{=URL('default', 'download', args=thisprofile[-1].image)}}" alt="Profile Picture" style="width:150px;height:150px;"/></span>
-                <h4><b>Name:</b></h4>
-            <span><h5>{{=thisprofile[-1].your_name}}</h5></span>
-                <h4><b>Birthday:</b></h4>
-            <span><h5>{{=thisprofile[-1].birthday}}</h5></span>
-                <h4><b>Gender:</b></h4>
-            <span><h5>{{=thisprofile[-1].gender}}</h5></span>
-                <h4><b>About Me:</b></h4>
-            <span><h5>{{=(thisprofile[-1].about_me)}}</h5></span>
-                <h4><b>Interests:</b></h4>
-            <span><h5>{{=thisprofile[-1].interests}}</h5></span>
-                <h4><b>Major:</b></h4>
-            <span><h5>{{=thisprofile[-1].major}}</h5></span>
-                <h4><b>Location:</b></h4>
-            <span><h5>{{=thisprofile[-1].college}}</h5></span>
-                {{pass}}
-
+  <div class="title col-md-12">
+      <center><h1>
+        PUBLIC PROFILE
+      </h1></center><br>
+      <blockquote>
+        <center><p>
         <!-- TIPS -->
-
-        <div class="row" style="color: white">
-          <strong>{{=tip}}</strong>
+         <small>{{=tip}} </small>
+        </p> 
+      </blockquote></center><br><br>
+      <br>
+      <br>
+  </div>
+  <div class="row">
+        <div class="col-md-4">
+          
         </div>
+        <div class="form col-md-4"><center>
+          <h3>{{=thisprofile[-1].your_name}}</h3>
+        
+           <span><img src="{{=URL('default', 'download', args=thisprofile[-1].image)}}" alt="Profile Picture" style="width:300px;height:300px;border:1px solid #000000;"/></span><br>
+           <br><br>
+            <table border="0" style="width:80%">
+              <tr><td>Birthday:</td><td>{{=thisprofile[-1].birthday}}</td> </tr>
+              <tr><td>Gender:</td><td>{{=thisprofile[-1].gender}}</td></tr>
+              <tr><td>Seeking a:</td><td>{{=thisprofile[-1].seeking_a}}</td></tr>
+              <tr><td>About Me:</td><td>{{=(thisprofile[-1].about_me)}}</td></tr>
+              <tr><td>Interests:</td><td>{{=thisprofile[-1].interests}}</td></tr>
+              <tr><td>Major:</td><td>{{=thisprofile[-1].major}}</td></tr>
+              <tr><td>Location:</td><td>{{=thisprofile[-1].college}}</td></tr>
+                  {{pass}}
 
-        <h1> . </h1>
-      </center>
-    </div>
-    <div class="col-md-4">
-    </div>
-  </body>
+            </table>   
+            </center>
+
+        </div>
+        <div class="col-md-4">
+        
+        </div>
+  </div>
+</div>
+</body>
  
