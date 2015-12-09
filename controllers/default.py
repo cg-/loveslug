@@ -45,8 +45,7 @@ def messages():
 
 def get_messages():
     '''This will return all emails that the user has sent or received -cole '''
-    rec_rows = db(db.email.receiver==auth.user_id).select()
-    print rec_rows
+    rec_rows = db(db.email.receiver==auth.user_id).select(orderby=db.email.sent)
 
     d1 = {r.message_id: {
         'sender':r.sender,
@@ -58,8 +57,7 @@ def get_messages():
         'sent':r.sent}
           for r in rec_rows}
 
-    sent_rows = db(db.email.sender==auth.user_id).select()
-    print sent_rows
+    sent_rows = db(db.email.sender==auth.user_id).select(orderby=db.email.sent)
 
     d2 = {r.message_id: {
         'sender':r.sender,
