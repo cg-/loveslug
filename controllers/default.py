@@ -32,9 +32,9 @@ profTips =  [   "People see your picture before hellos. Be sure to take a good p
 
 def index():
     #display
-    profile = db().select(db.person.user_id, db.person.image, db.person.your_name)
-
-    return dict(form=auth(), profile=profile, tip=selRandTip(dateTips))
+    profile = db().select(db.person.user_id, db.person.image, db.person.your_name, db.person.college, db.person.birthday, db.person.seeking_a, db.person.gender)
+    myprofile = db(db.person.user_id == auth.user).select()
+    return dict(myprofile=myprofile, form=auth(), profile=profile, tip=selRandTip(dateTips))
 
 def matches():
     thisprofile = db(db.person.user_id == auth.user).select()
@@ -92,7 +92,20 @@ def chat():
     return dict(sentChats=sentChats, recChats=recChats)
 
 def settings():
-    return dict()
+    profile = db(db.preferences.user_id == auth.user).select().first()
+    print profile
+    form = SQLFORM(db.preferences,
+                   fields=[
+                       'male',
+                       'female',
+                   ],
+                   record=profile
+                   )
+    form.vars.setdefault('user_id', auth.user)
+    if form.process().accepted:
+        session.flash = T('Your settings have been updated')
+        redirect(URL('default', 'settings'))
+    return dict(form=form)
 
 def myprofile():
     thisprofile = db(db.person.user_id == auth.user).select()
@@ -102,7 +115,6 @@ def myprofile():
     return dict(thisprofile=thisprofile, tip=selRandTip(profTips))
 
 def profile():
-
     profile_id = db.person(request.args(0))
     thisprofile = db(db.person.user_id == profile_id).select()
     return dict(thisprofile=thisprofile, tip=selRandTip(profTips))

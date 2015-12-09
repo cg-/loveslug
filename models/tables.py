@@ -60,3 +60,12 @@ db.define_table('email',
                 Field('sent', requires=IS_NOT_EMPTY()),# Time it was sent
                 Field('message_id', requires=IS_NOT_EMPTY()),# ID of message
                 )
+
+db.define_table('preferences',
+                Field('user_id', db.auth_user, default=auth.user),
+
+                #using integers for now for testing purposes -- will change everything back to booleans after problems are resolved
+
+                Field('male', 'text', default = "1 is true, 0 is false"),
+                Field('female', 'text', default = "1 is true, 0 is false"),
+)

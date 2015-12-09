@@ -22,10 +22,31 @@
         <div>
           <h4>
           LOOKING FOR A:
-            <form action="">
-              <input type="checkbox" name="gender" value="Male">Male<br>
-              <input type="checkbox" name="gender" value="Female">Female
-            </form>
+
+          {{=form}}
+              <!-- js way to do it -- didn't work
+
+              <input type="checkbox" name="gender" value="male" id="male">Male<br>
+              <input type="checkbox" name="gender" value="female" id="female">Female
+
+              <script>
+              function myFunction() {
+                  if(document.getElementById("male").checked){
+                    {{#db.preferences.male = 1}}
+                  }
+                  if(!(document.getElementById("male").checked)){
+                    {{#db.preferences.male = 0}}
+                  }
+                  if(document.getElementById("female).checked){
+                    {{#db.preferences.female = 1}}
+                  }
+                  if(!(document.getElementById("female").checked)){
+                    {{#db.preferences.female = 0}}
+                  }
+              }
+              </script>
+              -->
+
             </h4>
           </div>
         <div>
@@ -34,8 +55,8 @@
               <form action="">
               <input type="checkbox" name="college" value="Porter">Porter<br>
               <input type="checkbox" name="college" value="Kresge">Kresge<br>
-              <input type="checkbox" name="college" value="Merrill">Merrill<br>
-              <input type="checkbox" name="college" value="Crown">Crown<br>
+              <input type="checkbox" name="college" id="Merrill">Merrill<br>
+              <input type="checkbox" name="college" id="Crown">Crown<br>
               <input type="checkbox" name="college" value="Oakes">Oakes<br>
               <input type="checkbox" name="college" value="Cowell">Cowell<br>
               <input type="checkbox" name="college" value="Stevenson">Stevenson<br>
@@ -53,15 +74,8 @@
             </form>
           </h4>
         </div>
-        <div>
-          <h4>
-            MAJOR
-            <form action="">
-              <input type="checkbox" name="major" value="match">Match My Major!<br>
-              <input type="checkbox" name="major" value="nomatch">I Don't Care
-            </form>
-          </h4>
-        </div>
+
+    <button onclick="myFunction()">Submit</button>
 
     <h1> . </h1>
       </center>
