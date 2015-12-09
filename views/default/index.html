@@ -126,9 +126,19 @@
   <div class="row">
     <div class="col-md-3">
       <!-- DISPLAY IMAGE OF A MATCH HERE -->
+
         {{ for users in profile: }}
-          <img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;" />
+        <div class="matchpictures" >
+            <table>
+            <tr>
+                <td><img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;" /></td>
+                <h3>{{=users.your_name}}</h3>
+            </tr>
+            </table>
+        </div>
         {{pass}}
+
+
     </div>
     <div class="col-md-3">
       <!-- DISPLAY IMAGE OF A MATCH HERE -->

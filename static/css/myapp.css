@@ -37,3 +37,7 @@ div.title {
 .message-table .message-table-head {
   font-weight: bolder;
 }
+
+div.matchpictures{
+  display: inline-block;
+}

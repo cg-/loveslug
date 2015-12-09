@@ -22,7 +22,8 @@ profTips =  [   "People see your face before hellos. Be sure to take a good pict
 
 def index():
     #display
-    profile = db().select(db.person.user_id, db.person.image)
+    profile = db().select(db.person.user_id, db.person.image, db.person.your_name)
+
     return dict(form = auth(), profile=profile, tip=selRandTip(dateTips))
 
 def matches():
@@ -98,6 +99,7 @@ def editprofile():
     print profile
     form = SQLFORM(db.person,
                    fields=[
+                       'your_name',
                        'image',
                        'about_me',
                        'interests',
