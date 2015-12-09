@@ -99,8 +99,11 @@ def editprofile():
     print profile
     form = SQLFORM(db.person,
                    fields=[
-                       'your_name',
                        'image',
+                       'your_name',
+                       'birthday',
+                       'gender',
+                       'seeking_a',
                        'about_me',
                        'interests',
                        'major',

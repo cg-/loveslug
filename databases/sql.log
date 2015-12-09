@@ -1627,3 +1627,41 @@ success!
 success!
 success!
 success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-12-08T23:42:07.758839
+ALTER TABLE person ADD gender CHAR(512);
+timestamp: 2015-12-08T23:42:07.763693
+ALTER TABLE person ADD birthday DATE;
+timestamp: 2015-12-08T23:42:07.766494
+ALTER TABLE person ADD seeking_a CHAR(512);
+timestamp: 2015-12-08T23:42:07.768317
+ALTER TABLE person ADD wutmate CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

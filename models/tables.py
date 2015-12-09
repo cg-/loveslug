@@ -19,6 +19,10 @@
 db.define_table('person',
                 Field('user_id', db.auth_user, default=auth.user),
                 Field('your_name', 'string'),
+                Field('birthday', 'date', requires=IS_DATE(format=T('%Y-%m-%d'),
+                                            error_message='must be YYYY-MM-DD!')),
+                Field('gender', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
+                Field('seeking_a', requires=IS_IN_SET(['Male', 'Female', 'Other'])),
                 Field('image', 'upload'),
                 Field('about_me', 'text'),
                 Field('interests', 'text'),
@@ -29,6 +33,7 @@ db.define_table('person',
                                                     'Porter', 'Kresge',
                                                     'Oakes','Eight',
                                                     'Off Campus'])),
+                Field('wutmate'),
                )
 
 db.person.id.readable = False
