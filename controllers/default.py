@@ -86,9 +86,9 @@ def settings():
 
 def myprofile():
     thisprofile = db(db.person.user_id == auth.user).select()
-    if thisprofile is None:
+    if db.person.user_id.validate(auth.user)[1] != None:
         session.flash = T('You have to update your profile first!')
-        redirect(URL('default'))
+        redirect(URL('editprofile'))
     return dict(thisprofile=thisprofile, tip=selRandTip(profTips))
 
 def profile():

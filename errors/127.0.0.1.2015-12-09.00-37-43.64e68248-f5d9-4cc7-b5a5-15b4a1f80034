@@ -1,0 +1,759 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.NameError'> name 'db' is not defined"
+p3
+sS'layer'
+p4
+S'C:\\Users\\Josh Shih\\Desktop\\cmps183\\applications\\loveslug\\models\\tables.py'
+p5
+sS'code'
+p6
+S"#########################################################################\n## Define your tables below; for example\n##\n## >>> db.define_table('mytable',Field('myfield','string'))\n##\n## Fields can be 'string','text','password','integer','double','boolean'\n##       'date','time','datetime','blob','upload', 'reference TABLENAME'\n## There is an implicit 'id integer autoincrement' field\n## Consult manual for more options, validators, etc.\n##\n## More API examples for controllers:\n##\n## >>> db.mytable.insert(myfield='value')\n## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)\n## >>> for row in rows: print row.id, row.myfield\n#########################################################################\n\n#Additional info to show on Personal Profile\ndb.define_table('person',\n                Field('user_id', db.auth_user, default=auth.user),\n                Field('your_name', 'string'),\n                Field('birthday', 'date', requires=IS_DATE(format=T('%Y-%m-%d'),\n                                            error_message='must be YYYY-MM-DD!')),\n                Field('gender', requires=IS_IN_SET(['Male', 'Female', 'Other'])),\n                Field('seeking_a', requires=IS_IN_SET(['Male', 'Female', 'Other'])),\n                Field('image', 'upload'),\n                Field('about_me', 'text'),\n                Field('interests', 'text'),\n                Field('major', 'string'),\n                Field('college', requires=IS_IN_SET(['Nine', 'Ten',\n                                                    'Crown', 'Merrill',\n                                                    'Stevenson', 'Cowell',\n                                                    'Porter', 'Kresge',\n                                                    'Oakes','Eight',\n                                                    'Off Campus'])),\n                Field('wutmate'),\n               )\n\ndb.person.id.readable = False\n# Chat Table\n# Will be used to hold chat messages for IMs.\n# - Cole\ndb.define_table('chat',\n                Field('sender', requires=IS_NOT_EMPTY()),   # User who sent\n                Field('receiver', requires=IS_NOT_EMPTY()), # User who it's to'\n                Field('body', requires=IS_NOT_EMPTY()),     # Text in chat message\n                Field('seen', requires=IS_NOT_EMPTY()),     # Has it been seen?\n                Field('sent', requires=IS_NOT_EMPTY()),# Time it was sent\n                Field('message_id', requires=IS_NOT_EMPTY()),# ID of message\n                )\n\n# Message Table\n# Will be used to hold e-mails between two users.\n# - Cole\ndb.define_table('email',\n                Field('sender', requires=IS_NOT_EMPTY()),   # User who sent\n                Field('receiver', requires=IS_NOT_EMPTY()), # User who it's to'\n                Field('body', requires=IS_NOT_EMPTY()),     # Text in chat message\n                Field('subject', requires=IS_NOT_EMPTY()),  # Subject of message\n                Field('seen', requires=IS_NOT_EMPTY()),     # Has it been seen?\n                Field('sent', requires=IS_NOT_EMPTY()),# Time it was sent\n                Field('message_id', requires=IS_NOT_EMPTY()),# ID of message\n                )\n"
+p7
+sS'snapshot'
+p8
+(dp9
+S'exception'
+p10
+(dp11
+S'__hash__'
+p12
+S"<method-wrapper '__hash__' of exceptions.NameError object>"
+p13
+sS'__setattr__'
+p14
+S"<method-wrapper '__setattr__' of exceptions.NameError object>"
+p15
+sS'__reduce_ex__'
+p16
+S'<built-in method __reduce_ex__ of exceptions.NameError object>'
+p17
+sS'__getslice__'
+p18
+S"<method-wrapper '__getslice__' of exceptions.NameError object>"
+p19
+sS'__getitem__'
+p20
+S"<method-wrapper '__getitem__' of exceptions.NameError object>"
+p21
+sS'__setstate__'
+p22
+S'<built-in method __setstate__ of exceptions.NameError object>'
+p23
+sS'__reduce__'
+p24
+S'<built-in method __reduce__ of exceptions.NameError object>'
+p25
+sS'__str__'
+p26
+S"<method-wrapper '__str__' of exceptions.NameError object>"
+p27
+sS'__format__'
+p28
+S'<built-in method __format__ of exceptions.NameError object>'
+p29
+sS'__getattribute__'
+p30
+S"<method-wrapper '__getattribute__' of exceptions.NameError object>"
+p31
+sS'__class__'
+p32
+S"<type 'exceptions.NameError'>"
+p33
+sS'__unicode__'
+p34
+S'<built-in method __unicode__ of exceptions.NameError object>'
+p35
+sS'__delattr__'
+p36
+S"<method-wrapper '__delattr__' of exceptions.NameError object>"
+p37
+sS'__subclasshook__'
+p38
+S'<built-in method __subclasshook__ of type object>'
+p39
+sS'__repr__'
+p40
+S"<method-wrapper '__repr__' of exceptions.NameError object>"
+p41
+sS'__dict__'
+p42
+S'{}'
+p43
+sS'args'
+p44
+S'("name \'db\' is not defined",)'
+p45
+sS'__sizeof__'
+p46
+S'<built-in method __sizeof__ of exceptions.NameError object>'
+p47
+sS'__doc__'
+p48
+S"'Name not found globally.'"
+p49
+sS'__init__'
+p50
+S"<method-wrapper '__init__' of exceptions.NameError object>"
+p51
+sS'__new__'
+p52
+S'<built-in method __new__ of type object>'
+p53
+ssS'evalue'
+p54
+S"name 'db' is not defined"
+p55
+sS'request'
+p56
+cgluon.html
+XML_unpickle
+p57
+(S's\xdc\xb3\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">ajax</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">application</td><td style="vertical-align:top;">:</td><td><div>loveslug</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cid</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">controller</td><td style="vertical-align:top;">:</td><td><div>default</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_admin</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-b1ed9191-07fd-419c-8030-3d3737ad0b6d<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_final</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-cfb3ad2c-dd5a-4d62-b688-8875ffed228f<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_goodhw</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-9ca392b6-be01-4057-abd0-923b85deb9a8<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_homework2</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-43d762c5-dedd-4d13-a61a-7ca4df6b2826<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hw3</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-81fbb666-6d78-4384-8cc4-4cddc151eb66<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hw4</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-5aeacf94-38f8-4c6b-baf4-9049cd17afee<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_hw5</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-cc7ae7e6-522d-4507-9b7c-fa2888fc28ad<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_johns</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-3c70ad83-6a0b-4b55-8cc5-88d0f164c4c1<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_loveslug</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-cfde15c9-0415-4e1f-b2db-a07f6039fe78<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_mine_test</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-0347e5a8-2560-4b82-9a87-5b7a52b32ccd<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_review</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-198c71a6-3a35-435d-a33a-09fb4be75e5f<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_review1</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-3f5668de-4e06-45b1-b80e-a7909c18174e<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_review2</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-4887d1d7-96ac-4eaa-964a-038e9ac0b61b<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_review3</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-f31bb33d-b83b-42e5-b488-d34d2b362e18<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_review4</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-dda9e98e-e043-4c74-a5d9-744e621614d0<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_review5</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-54624197-6dc9-4ba3-aac7-f957e9f46b9e<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_start</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-beec5cba-6370-474e-9852-c46c0b637977<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_test</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-ba1c94c8-df67-4e94-b4fa-e92b6738a666<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_welcome</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-121e4e33-7590-4d58-8241-831f15e9771b<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">env</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_ENCODING</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_ACCEPT_LANGUAGE</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_CONNECTION</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_COOKIE</td><td style="vertical-align:top;">:</td><td><div>session_id_mine_test=127.0.0.1-0347e5a8-2560-4b82-9a87-5b7a52b32ccd; session_id_review=127.0.0.1-198c71a6-3a35-435d-a33a-09fb4be75e5f; session_id_homework2=127.0.0.1-43d762c5-dedd-4d13-a61a-7ca4df6b2826; session_id_start=127.0.0.1-beec5cba-6370-474e-9852-c46c0b637977; session_id_test=127.0.0.1-ba1c94c8-df67-4e94-b4fa-e92b6738a666; session_id_hw4=127.0.0.1-5aeacf94-38f8-4c6b-baf4-9049cd17afee; session_id_goodhw=127.0.0.1-9ca392b6-be01-4057-abd0-923b85deb9a8; session_id_johns=127.0.0.1-3c70ad83-6a0b-4b55-8cc5-88d0f164c4c1; session_id_hw5=127.0.0.1-cc7ae7e6-522d-4507-9b7c-fa2888fc28ad; session_id_hw3=127.0.0.1-81fbb666-6d78-4384-8cc4-4cddc151eb66; session_id_final=127.0.0.1-cfb3ad2c-dd5a-4d62-b688-8875ffed228f; session_id_review1=127.0.0.1-3f5668de-4e06-45b1-b80e-a7909c18174e; session_id_review2=127.0.0.1-4887d1d7-96ac-4eaa-964a-038e9ac0b61b; session_id_review3=127.0.0.1-f31bb33d-b83b-42e5-b488-d34d2b362e18; session_id_review4=127.0.0.1-dda9e98e-e043-4c74-a5d9-744e621614d0; session_id_review5=127.0.0.1-54624197-6dc9-4ba3-aac7-f957e9f46b9e; session_id_loveslug=127.0.0.1-cfde15c9-0415-4e1f-b2db-a07f6039fe78; session_id_welcome=127.0.0.1-121e4e33-7590-4d58-8241-831f15e9771b; session_id_admin=127.0.0.1-b1ed9191-07fd-419c-8030-3d3737ad0b6d</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_HOST</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8800</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_REFERER</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8800/admin/default/site</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_UPGRADE_INSECURE_REQUESTS</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">HTTP_USER_AGENT</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.22 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">PATH_INFO</td><td style="vertical-align:top;">:</td><td><div>/loveslug/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">QUERY_STRING</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_ADDR</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REMOTE_PORT</td><td style="vertical-align:top;">:</td><td><div>54561</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">REQUEST_METHOD</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SCRIPT_NAME</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_NAME</td><td style="vertical-align:top;">:</td><td><div>JoshShih-Tower</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PORT</td><td style="vertical-align:top;">:</td><td><div>8800</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_PROTOCOL</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">SERVER_SOFTWARE</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\Josh Shih\\\\Desktop\\\\cmps183\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\Users\\\\Josh Shih\\\\Desktop\\\\cmps183\\\\applications\\\\loveslug\\\\&#x27;, &#x27;C:\\\\Users\\\\Josh Shih\\\\Desktop\\\\cmps183\\\\applications\\\\welcome\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Josh Shih\\Desktop\\cmps183</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x3e51888: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;fe80::a801:4a1a:785:3dc4%11&#x27;, &#x27;2601:647:ca80:8d4:6175:cb8c:cf77:c633&#x27;, &#x27;2601:647:ca80:8d4:a801:4a1a:785:3dc4&#x27;, &#x27;192.168.1.70&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;scheduler_groups&#x27;: None, &#x27;port&#x27;: 8800, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;JoshShih-Tower&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;print_errors&#x27;: True, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\Josh Shih\\\\Desktop\\\\cmps183&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;helloclass&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Josh Shih\\Desktop\\cmps183</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept</td><td style="vertical-align:top;">:</td><td><div>text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_encoding</td><td style="vertical-align:top;">:</td><td><div>gzip, deflate, sdch</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_accept_language</td><td style="vertical-align:top;">:</td><td><div>en-US,en;q=0.8</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_connection</td><td style="vertical-align:top;">:</td><td><div>keep-alive</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_cookie</td><td style="vertical-align:top;">:</td><td><div>session_id_mine_test=127.0.0.1-0347e5a8-2560-4b82-9a87-5b7a52b32ccd; session_id_review=127.0.0.1-198c71a6-3a35-435d-a33a-09fb4be75e5f; session_id_homework2=127.0.0.1-43d762c5-dedd-4d13-a61a-7ca4df6b2826; session_id_start=127.0.0.1-beec5cba-6370-474e-9852-c46c0b637977; session_id_test=127.0.0.1-ba1c94c8-df67-4e94-b4fa-e92b6738a666; session_id_hw4=127.0.0.1-5aeacf94-38f8-4c6b-baf4-9049cd17afee; session_id_goodhw=127.0.0.1-9ca392b6-be01-4057-abd0-923b85deb9a8; session_id_johns=127.0.0.1-3c70ad83-6a0b-4b55-8cc5-88d0f164c4c1; session_id_hw5=127.0.0.1-cc7ae7e6-522d-4507-9b7c-fa2888fc28ad; session_id_hw3=127.0.0.1-81fbb666-6d78-4384-8cc4-4cddc151eb66; session_id_final=127.0.0.1-cfb3ad2c-dd5a-4d62-b688-8875ffed228f; session_id_review1=127.0.0.1-3f5668de-4e06-45b1-b80e-a7909c18174e; session_id_review2=127.0.0.1-4887d1d7-96ac-4eaa-964a-038e9ac0b61b; session_id_review3=127.0.0.1-f31bb33d-b83b-42e5-b488-d34d2b362e18; session_id_review4=127.0.0.1-dda9e98e-e043-4c74-a5d9-744e621614d0; session_id_review5=127.0.0.1-54624197-6dc9-4ba3-aac7-f957e9f46b9e; session_id_loveslug=127.0.0.1-cfde15c9-0415-4e1f-b2db-a07f6039fe78; session_id_welcome=127.0.0.1-121e4e33-7590-4d58-8241-831f15e9771b; session_id_admin=127.0.0.1-b1ed9191-07fd-419c-8030-3d3737ad0b6d</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_host</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1:8800</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_referer</td><td style="vertical-align:top;">:</td><td><div>http://127.0.0.1:8800/admin/default/site</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_upgrade_insecure_requests</td><td style="vertical-align:top;">:</td><td><div>1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">http_user_agent</td><td style="vertical-align:top;">:</td><td><div>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/48.0.2564.22 Safari/537.36</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::a801:4a1a:785:3dc4%11</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>192.168.1.70</div></td></tr><tr><td><div>2601:647:ca80:8d4:6175:cb8c:cf77:c633</div></td></tr><tr><td><div>2601:647:ca80:8d4:a801:4a1a:785:3dc4</div></td></tr><tr><td><div>JoshShih-Tower</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path_info</td><td style="vertical-align:top;">:</td><td><div>/loveslug/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">query_string</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_addr</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">remote_port</td><td style="vertical-align:top;">:</td><td><div>54561</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_method</td><td style="vertical-align:top;">:</td><td><div>GET</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">request_uri</td><td style="vertical-align:top;">:</td><td><div>/loveslug/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">script_name</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_name</td><td style="vertical-align:top;">:</td><td><div>JoshShih-Tower</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_port</td><td style="vertical-align:top;">:</td><td><div>8800</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_protocol</td><td style="vertical-align:top;">:</td><td><div>HTTP/1.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">server_software</td><td style="vertical-align:top;">:</td><td><div>Rocket 1.2.6</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_path</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Josh Shih\\Desktop\\cmps183</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.12.3-stable+timestamp.2015.08.19.00.18.03</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x0000000001DA2150&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x0000000003DC19A8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x0000000004219E58&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi.version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_errors</td><td style="vertical-align:top;">:</td><td><div>&lt;open file &#x27;&lt;stderr&gt;&#x27;, mode &#x27;w&#x27; at 0x0000000001DA2150&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_file_wrapper</td><td style="vertical-align:top;">:</td><td><div>&lt;class wsgiref.util.FileWrapper at 0x0000000003DC19A8&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_input</td><td style="vertical-align:top;">:</td><td><div>&lt;socket._fileobject object at 0x0000000004219E58&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multiprocess</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_multithread</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_run_once</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_url_scheme</td><td style="vertical-align:top;">:</td><td><div>http</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi_version</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>1</div></td></tr><tr><td><div>0</div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">extension</td><td style="vertical-align:top;">:</td><td><div>html</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">folder</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Josh Shih\\Desktop\\cmps183\\applications\\loveslug\\</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">function</td><td style="vertical-align:top;">:</td><td><div>index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">global_settings</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">app_folders</td><td style="vertical-align:top;">:</td><td><div>set([&#x27;C:\\\\Users\\\\Josh Shih\\\\Desktop\\\\cmps183\\\\applications\\\\admin\\\\&#x27;, &#x27;C:\\\\Users\\\\Josh Shih\\\\Desktop\\\\cmps183\\\\applications\\\\loveslug\\\\&#x27;, &#x27;C:\\\\Users\\\\Josh Shih\\\\Desktop\\\\cmps183\\\\applications\\\\welcome\\\\&#x27;])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">applications_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Josh Shih\\Desktop\\cmps183</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_args</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cmd_options</td><td style="vertical-align:top;">:</td><td><div>&lt;Values at 0x3e51888: {&#x27;verbose&#x27;: False, &#x27;ip&#x27;: &#x27;127.0.0.1&#x27;, &#x27;debuglevel&#x27;: 30, &#x27;with_scheduler&#x27;: False, &#x27;ips&#x27;: [&#x27;fe80::a801:4a1a:785:3dc4%11&#x27;, &#x27;2601:647:ca80:8d4:6175:cb8c:cf77:c633&#x27;, &#x27;2601:647:ca80:8d4:a801:4a1a:785:3dc4&#x27;, &#x27;192.168.1.70&#x27;], &#x27;shutdown_timeout&#x27;: 5, &#x27;taskbar&#x27;: False, &#x27;with_coverage&#x27;: False, &#x27;scheduler_groups&#x27;: None, &#x27;port&#x27;: 8800, &#x27;maxthreads&#x27;: None, &#x27;softcron&#x27;: False, &#x27;server_name&#x27;: &#x27;JoshShih-Tower&#x27;, &#x27;bpython&#x27;: False, &#x27;nogui&#x27;: False, &#x27;pid_filename&#x27;: &#x27;httpserver.pid&#x27;, &#x27;print_errors&#x27;: True, &#x27;extcron&#x27;: False, &#x27;runcron&#x27;: False, &#x27;run_system_tests&#x27;: False, &#x27;test&#x27;: None, &#x27;folder&#x27;: &#x27;C:\\\\Users\\\\Josh Shih\\\\Desktop\\\\cmps183&#x27;, &#x27;config&#x27;: &#x27;&#x27;, &#x27;minthreads&#x27;: None, &#x27;shell&#x27;: None, &#x27;run&#x27;: &#x27;&#x27;, &#x27;log_filename&#x27;: &#x27;httpserver.log&#x27;, &#x27;profiler_dir&#x27;: None, &#x27;args&#x27;: [&#x27;&#x27;], &#x27;socket_timeout&#x27;: 5, &#x27;ssl_ca_certificate&#x27;: None, &#x27;scheduler&#x27;: None, &#x27;interfaces&#x27;: None, &#x27;ssl_private_key&#x27;: &#x27;&#x27;, &#x27;gae&#x27;: None, &#x27;password&#x27;: &#x27;helloclass&#x27;, &#x27;request_queue_size&#x27;: 5, &#x27;ssl_certificate&#x27;: &#x27;&#x27;, &#x27;cronjob&#x27;: False, &#x27;numthreads&#x27;: None, &#x27;quiet&#x27;: False, &#x27;import_models&#x27;: False, &#x27;timeout&#x27;: 10, &#x27;plain&#x27;: False, &#x27;nobanner&#x27;: False}&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">db_sessions</td><td style="vertical-align:top;">:</td><td><div>set([])</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">debugging</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">gluon_parent</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Josh Shih\\Desktop\\cmps183</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_jython</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_pypy</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_source</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">local_hosts</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>fe80::a801:4a1a:785:3dc4%11</div></td></tr><tr><td><div>::ffff:127.0.0.1</div></td></tr><tr><td><div>::1</div></td></tr><tr><td><div>192.168.1.70</div></td></tr><tr><td><div>2601:647:ca80:8d4:6175:cb8c:cf77:c633</div></td></tr><tr><td><div>2601:647:ca80:8d4:a801:4a1a:785:3dc4</div></td></tr><tr><td><div>JoshShih-Tower</div></td></tr><tr><td><div>127.0.0.1</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">web2py_version</td><td style="vertical-align:top;">:</td><td><div>2.12.3-stable+timestamp.2015.08.19.00.18.03</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_https</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_local</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_restful</td><td style="vertical-align:top;">:</td><td><div>False</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_sheduler</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">is_shell</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">now</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2015, 12, 9, 0, 37, 43, 63000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_args</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">raw_extension</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">url</td><td style="vertical-align:top;">:</td><td><div>/loveslug/default/index</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">utcnow</td><td style="vertical-align:top;">:</td><td><div>datetime.datetime(2015, 12, 9, 8, 37, 43, 63000)</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">wsgi</td><td style="vertical-align:top;">:</td><td><div>&lt;gluon.main.LazyWSGI object at 0x00000000074646A0&gt;</div></td></tr></table></div>'
+tRp58
+sS'frames'
+p59
+(lp60
+(dp61
+S'file'
+p62
+S'C:\\Users\\Josh Shih\\Desktop\\cmps183\\gluon\\restricted.py'
+p63
+sS'dump'
+p64
+(dp65
+S'environment'
+p66
+S"{'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}"
+p67
+sS'ccode'
+p68
+S'<code object <module> at 00000000075F63B0, file ...applications\\loveslug\\models\\tables.py", line 19>'
+p69
+ssS'lnum'
+p70
+I227
+sS'lines'
+p71
+(dp72
+I224
+S'            ccode = code'
+p73
+sI225
+S'        else:'
+p74
+sI226
+S'            ccode = compile2(code, layer)'
+p75
+sI227
+S'        exec ccode in environment'
+p76
+sI228
+S'    except HTTP:'
+p77
+sI229
+S'        raise'
+p78
+sI230
+S'    except RestrictedError:'
+p79
+sI231
+S'        # do not encapsulate (obfuscate) the original RestrictedError'
+p80
+sI222
+S'    try:'
+p81
+sI223
+S'        if isinstance(code, types.CodeType):'
+p82
+ssS'call'
+p83
+S"(code='################################################...S_NOT_EMPTY()),# ID of message\\n                )\\n', environment={'A': <class 'gluon.html.A'>, 'ANY_OF': <class 'gluon.validators.ANY_OF'>, 'ASSIGNJS': <function ASSIGNJS>, 'B': <class 'gluon.html.B'>, 'BEAUTIFY': <class 'gluon.html.BEAUTIFY'>, 'BODY': <class 'gluon.html.BODY'>, 'BR': <class 'gluon.html.BR'>, 'BUTTON': <class 'gluon.html.BUTTON'>, 'CAT': <class 'gluon.html.CAT'>, 'CENTER': <class 'gluon.html.CENTER'>, ...}, layer=r'C:\\Users\\Josh Shih\\Desktop\\cmps183\\applications\\loveslug\\models\\tables.py')"
+p84
+sS'func'
+p85
+S'restricted'
+p86
+sa(dp87
+g62
+S'C:\\Users\\Josh Shih\\Desktop\\cmps183\\applications\\loveslug\\models\\tables.py'
+p88
+sg64
+(dp89
+S'IS_DATE'
+p90
+S"<class 'gluon.validators.IS_DATE'>"
+p91
+sS'default'
+p92
+S'undefined'
+p93
+sS'error_message'
+p94
+g93
+sS'db'
+p95
+g93
+sS'auth'
+p96
+g93
+sS'Field'
+p97
+S"<class 'pydal.objects.Field'>"
+p98
+sS'IS_IN_SET'
+p99
+S"<class 'gluon.validators.IS_IN_SET'>"
+p100
+sS'builtinformat'
+p101
+S'<built-in function format>'
+p102
+sS'requires'
+p103
+g93
+sS'T'
+S'<gluon.languages.translator object>'
+p104
+ssg70
+I19
+sg71
+(dp105
+I14
+S"## >>> rows=db(db.mytable.myfield=='value').select(db.mytable.ALL)"
+p106
+sI15
+S'## >>> for row in rows: print row.id, row.myfield'
+p107
+sI16
+S'#########################################################################'
+p108
+sI17
+S''
+sI18
+S'#Additional info to show on Personal Profile'
+p109
+sI19
+S"db.define_table('person',"
+p110
+sI20
+S"                Field('user_id', db.auth_user, default=auth.user),"
+p111
+sI21
+S"                Field('your_name', 'string'),"
+p112
+sI22
+S"                Field('birthday', 'date', requires=IS_DATE(format=T('%Y-%m-%d'),"
+p113
+sI23
+S"                                            error_message='must be YYYY-MM-DD!')),"
+p114
+ssg83
+S'()'
+p115
+sg85
+S'<module>'
+p116
+sasS'pyver'
+p117
+S'Python 2.7.10: E:\\Anaconda\\python.exe (prefix: E:\\Anaconda)'
+p118
+sS'session'
+p119
+g57
+(S's\x1a\x00\x00\x00<div><table></table></div>'
+tRp120
+sS'etype'
+p121
+S"<type 'exceptions.NameError'>"
+p122
+sS'date'
+p123
+S'Wed Dec 09 00:37:43 2015'
+p124
+sS'response'
+p125
+g57
+(S's\xd0\x16\x00\x00<div><table><tr><td style="font-weight:bold;vertical-align:top;">body</td><td style="vertical-align:top;">:</td><td><div>&lt;cStringIO.StringO object at 0x000000000417F768&gt;</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">cookies</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">session_id_loveslug</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-16fd5b47-429c-4611-a7b4-ff425bf59569<table><tr><td style="font-weight:bold;vertical-align:top;">comment</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">domain</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">expires</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">httponly</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">max-age</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">path</td><td style="vertical-align:top;">:</td><td><div>/</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">secure</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">version</td><td style="vertical-align:top;">:</td><td><div></div></td></tr></table></div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">delimiters</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>{{</div></td></tr><tr><td><div>}}</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">files</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">flash</td><td style="vertical-align:top;">:</td><td><div></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">form_label_separator</td><td style="vertical-align:top;">:</td><td><div>: </div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">formstyle</td><td style="vertical-align:top;">:</td><td><div>table3cols</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">generic_patterns</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>*</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">headers</td><td style="vertical-align:top;">:</td><td><div><table><tr><td style="font-weight:bold;vertical-align:top;">X-Powered-By</td><td style="vertical-align:top;">:</td><td><div>web2py</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">menu</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">meta</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">models_to_run</td><td style="vertical-align:top;">:</td><td><div><table><tr><td><div>^\\w+\\.py$</div></td></tr><tr><td><div>^default/\\w+\\.py$</div></td></tr><tr><td><div>^default/index/\\w+\\.py$</div></td></tr></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">postprocessing</td><td style="vertical-align:top;">:</td><td><div><table></table></div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_client</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_compression_level</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_expires</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_cookie_key</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_data_name</td><td style="vertical-align:top;">:</td><td><div>session_data_loveslug</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_file</td><td style="vertical-align:top;">:</td><td><div>None</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_filename</td><td style="vertical-align:top;">:</td><td><div>C:\\Users\\Josh Shih\\Desktop\\cmps183\\applications\\loveslug\\sessions\\127.0.0.1-16fd5b47-429c-4611-a7b4-ff425bf59569</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_hash</td><td style="vertical-align:top;">:</td><td><div>c0762cbf4baf7f9af97c051e7fcb8083</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id</td><td style="vertical-align:top;">:</td><td><div>127.0.0.1-16fd5b47-429c-4611-a7b4-ff425bf59569</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_id_name</td><td style="vertical-align:top;">:</td><td><div>session_id_loveslug</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_masterapp</td><td style="vertical-align:top;">:</td><td><div>loveslug</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_new</td><td style="vertical-align:top;">:</td><td><div>True</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">session_storage_type</td><td style="vertical-align:top;">:</td><td><div>file</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">status</td><td style="vertical-align:top;">:</td><td><div>200</div></td></tr><tr><td style="font-weight:bold;vertical-align:top;">view</td><td style="vertical-align:top;">:</td><td><div>default/index.html</div></td></tr></table></div>'
+tRp126
+sS'locals'
+p127
+(dp128
+S'OBJECT'
+p129
+S"<class 'gluon.html.OBJECT'>"
+p130
+sS'SQLDB'
+p131
+S"<class 'pydal.base.DAL'>"
+p132
+sg119
+S'<Storage {}>'
+p133
+sS'LINK'
+p134
+S"<class 'gluon.html.LINK'>"
+p135
+sS'BR'
+p136
+S"<class 'gluon.html.BR'>"
+p137
+sS'local_import'
+p138
+S'<function <lambda>>'
+p139
+sS'OPTGROUP'
+p140
+S"<class 'gluon.html.OPTGROUP'>"
+p141
+sS'PRE'
+p142
+S"<class 'gluon.html.PRE'>"
+p143
+sS'IS_INT_IN_RANGE'
+p144
+S"<class 'gluon.validators.IS_INT_IN_RANGE'>"
+p145
+sS'IS_LOWER'
+p146
+S"<class 'gluon.validators.IS_LOWER'>"
+p147
+sS'IS_STRONG'
+p148
+S"<class 'gluon.validators.IS_STRONG'>"
+p149
+sS'cache'
+p150
+S'<gluon.cache.Cache object>'
+p151
+sS'IS_IN_DB'
+p152
+S"<class 'gluon.validators.IS_IN_DB'>"
+p153
+sS'TAG'
+p154
+S'<gluon.html.__TAG__ object>'
+p155
+sS'SQLField'
+p156
+S"<class 'pydal.objects.Field'>"
+p157
+sS'BODY'
+p158
+S"<class 'gluon.html.BODY'>"
+p159
+sS'IS_DATE_IN_RANGE'
+p160
+S"<class 'gluon.validators.IS_DATE_IN_RANGE'>"
+p161
+sS'TH'
+p162
+S"<class 'gluon.html.TH'>"
+p163
+sS'URL'
+p164
+S'<function URL>'
+p165
+sS'__file__'
+p166
+S"r'C:\\Users\\Josh Shih\\Desktop\\cmps183\\applications\\loveslug\\models\\tables.py'"
+p167
+sS'P'
+S"<class 'gluon.html.P'>"
+p168
+sS'TFOOT'
+p169
+S"<class 'gluon.html.TFOOT'>"
+p170
+sS'XHTML'
+p171
+S"<class 'gluon.html.XHTML'>"
+p172
+sS'ON'
+p173
+S'True'
+p174
+sS'OL'
+p175
+S"<class 'gluon.html.OL'>"
+p176
+sS'TEXTAREA'
+p177
+S"<class 'gluon.html.TEXTAREA'>"
+p178
+sS'MENU'
+p179
+S"<class 'gluon.html.MENU'>"
+p180
+sS'LOAD'
+p181
+S'<function LOAD>'
+p182
+sS'CODE'
+p183
+S"<class 'gluon.html.CODE'>"
+p184
+sS'HTTP'
+p185
+S"<class 'gluon.http.HTTP'>"
+p186
+sS'HR'
+p187
+S"<class 'gluon.html.HR'>"
+p188
+sS'IS_DATETIME'
+p189
+S"<class 'gluon.validators.IS_DATETIME'>"
+p190
+sS'HEAD'
+p191
+S"<class 'gluon.html.HEAD'>"
+p192
+sS'LABEL'
+p193
+S"<class 'gluon.html.LABEL'>"
+p194
+sS'CLEANUP'
+p195
+S"<class 'gluon.validators.CLEANUP'>"
+p196
+sS'SELECT'
+p197
+S"<class 'gluon.html.SELECT'>"
+p198
+sS'CENTER'
+p199
+S"<class 'gluon.html.CENTER'>"
+p200
+sS'__builtins__'
+p201
+S"{'ArithmeticError': <type 'exceptions.ArithmeticError'>, 'AssertionError': <type 'exceptions.AssertionError'>, 'AttributeError': <type 'exceptions.AttributeError'>, 'BaseException': <type 'exceptions.BaseException'>, 'BufferError': <type 'exceptions.BufferError'>, 'BytesWarning': <type 'exceptions.BytesWarning'>, 'DeprecationWarning': <type 'exceptions.DeprecationWarning'>, 'EOFError': <type 'exceptions.EOFError'>, 'Ellipsis': Ellipsis, 'EnvironmentError': <type 'exceptions.EnvironmentError'>, ...}"
+p202
+sS'HTML'
+p203
+S"<class 'gluon.html.HTML'>"
+p204
+sS'SQLFORM'
+p205
+S"<class 'gluon.sqlhtml.SQLFORM'>"
+p206
+sS'EM'
+p207
+S"<class 'gluon.html.EM'>"
+p208
+sS'redirect'
+p209
+S'<function redirect>'
+p210
+sS'FIELDSET'
+p211
+S"<class 'gluon.html.FIELDSET'>"
+p212
+sS'IS_EQUAL_TO'
+p213
+S"<class 'gluon.validators.IS_EQUAL_TO'>"
+p214
+sS'embed64'
+p215
+S'<function embed64>'
+p216
+sS'IS_LIST_OF'
+p217
+S"<class 'gluon.validators.IS_LIST_OF'>"
+p218
+sS'__name__'
+p219
+S"'__restricted__'"
+p220
+sS'EMBED'
+p221
+S"<class 'gluon.html.EMBED'>"
+p222
+sS'FORM'
+p223
+S"<class 'gluon.html.FORM'>"
+p224
+sS'H2'
+p225
+S"<class 'gluon.html.H2'>"
+p226
+sS'H3'
+p227
+S"<class 'gluon.html.H3'>"
+p228
+sS'BUTTON'
+p229
+S"<class 'gluon.html.BUTTON'>"
+p230
+sS'H1'
+p231
+S"<class 'gluon.html.H1'>"
+p232
+sS'H6'
+p233
+S"<class 'gluon.html.H6'>"
+p234
+sS'H4'
+p235
+S"<class 'gluon.html.H4'>"
+p236
+sS'H5'
+p237
+S"<class 'gluon.html.H5'>"
+p238
+sS'UL'
+p239
+S"<class 'gluon.html.UL'>"
+p240
+sS'IS_UPPER'
+p241
+S"<class 'gluon.validators.IS_UPPER'>"
+p242
+sS'xmlescape'
+p243
+S'<function xmlescape>'
+p244
+sS'IS_TIME'
+p245
+S"<class 'gluon.validators.IS_TIME'>"
+p246
+sS'OPTION'
+p247
+S"<class 'gluon.html.OPTION'>"
+p248
+sS'TITLE'
+p249
+S"<class 'gluon.html.TITLE'>"
+p250
+sS'CRYPT'
+p251
+S"<class 'gluon.validators.CRYPT'>"
+p252
+sS'IS_EMPTY_OR'
+p253
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p254
+sS'MARKMIN'
+p255
+S"<class 'gluon.html.MARKMIN'>"
+p256
+sS'INPUT'
+p257
+S"<class 'gluon.html.INPUT'>"
+p258
+sS'STRONG'
+p259
+S"<class 'gluon.html.STRONG'>"
+p260
+sS'COL'
+p261
+S"<class 'gluon.html.COL'>"
+p262
+sS'SCRIPT'
+p263
+S"<class 'gluon.html.SCRIPT'>"
+p264
+sS'TABLE'
+p265
+S"<class 'gluon.html.TABLE'>"
+p266
+sS'IS_IPV4'
+p267
+S"<class 'gluon.validators.IS_IPV4'>"
+p268
+sS'IS_LENGTH'
+p269
+S"<class 'gluon.validators.IS_LENGTH'>"
+p270
+sS'IS_IPV6'
+p271
+S"<class 'gluon.validators.IS_IPV6'>"
+p272
+sS'XML'
+p273
+S"<class 'gluon.html.XML'>"
+p274
+sS'B'
+S"<class 'gluon.html.B'>"
+p275
+sS'IMG'
+p276
+S"<class 'gluon.html.IMG'>"
+p277
+sS'SQLTABLE'
+p278
+S"<class 'gluon.sqlhtml.SQLTABLE'>"
+p279
+sS'IS_MATCH'
+p280
+S"<class 'gluon.validators.IS_MATCH'>"
+p281
+sS'IS_ALPHANUMERIC'
+p282
+S"<class 'gluon.validators.IS_ALPHANUMERIC'>"
+p283
+sS'SPAN'
+p284
+S"<class 'gluon.html.SPAN'>"
+p285
+sS'IS_JSON'
+p286
+S"<class 'gluon.validators.IS_JSON'>"
+p287
+sS'IS_IPADDRESS'
+p288
+S"<class 'gluon.validators.IS_IPADDRESS'>"
+p289
+sS'IS_SLUG'
+p290
+S"<class 'gluon.validators.IS_SLUG'>"
+p291
+sS'BEAUTIFY'
+p292
+S"<class 'gluon.html.BEAUTIFY'>"
+p293
+sS'META'
+p294
+S"<class 'gluon.html.META'>"
+p295
+sS'IS_DATE'
+p296
+S"<class 'gluon.validators.IS_DATE'>"
+p297
+sS'IS_EMAIL'
+p298
+S"<class 'gluon.validators.IS_EMAIL'>"
+p299
+sS'IS_NOT_EMPTY'
+p300
+S"<class 'gluon.validators.IS_NOT_EMPTY'>"
+p301
+sS'IS_FLOAT_IN_RANGE'
+p302
+S"<class 'gluon.validators.IS_FLOAT_IN_RANGE'>"
+p303
+sS'TBODY'
+p304
+S"<class 'gluon.html.TBODY'>"
+p305
+sS'CAT'
+p306
+S"<class 'gluon.html.CAT'>"
+p307
+sS'Field'
+p308
+S"<class 'pydal.objects.Field'>"
+p309
+sS'IS_LIST_OF_EMAILS'
+p310
+S"<class 'gluon.validators.IS_LIST_OF_EMAILS'>"
+p311
+sS'DIV'
+p312
+S"<class 'gluon.html.DIV'>"
+p313
+sS'LEGEND'
+p314
+S"<class 'gluon.html.LEGEND'>"
+p315
+sS'COLGROUP'
+p316
+S"<class 'gluon.html.COLGROUP'>"
+p317
+sS'DAL'
+p318
+S"<class 'pydal.base.DAL'>"
+p319
+sS'ASSIGNJS'
+p320
+S'<function ASSIGNJS>'
+p321
+sS'TR'
+p322
+S"<class 'gluon.html.TR'>"
+p323
+sS'LI'
+p324
+S"<class 'gluon.html.LI'>"
+p325
+sS'IFRAME'
+p326
+S"<class 'gluon.html.IFRAME'>"
+p327
+sS'TD'
+p328
+S"<class 'gluon.html.TD'>"
+p329
+sS'IS_URL'
+p330
+S"<class 'gluon.validators.IS_URL'>"
+p331
+sS'A'
+S"<class 'gluon.html.A'>"
+p332
+sS'STYLE'
+p333
+S"<class 'gluon.html.STYLE'>"
+p334
+sS'IS_DATETIME_IN_RANGE'
+p335
+S"<class 'gluon.validators.IS_DATETIME_IN_RANGE'>"
+p336
+sS'IS_IMAGE'
+p337
+S"<class 'gluon.validators.IS_IMAGE'>"
+p338
+sS'I'
+S"<class 'gluon.html.I'>"
+p339
+sS'IS_NOT_IN_DB'
+p340
+S"<class 'gluon.validators.IS_NOT_IN_DB'>"
+p341
+sg125
+S"<Storage {'body': <cStringIO.StringO object at 0...000000000743E208>, 'view': 'default/index.html'}>"
+p342
+sS'THEAD'
+p343
+S"<class 'gluon.html.THEAD'>"
+p344
+sS'ANY_OF'
+p345
+S"<class 'gluon.validators.ANY_OF'>"
+p346
+sS'IS_NULL_OR'
+p347
+S"<class 'gluon.validators.IS_EMPTY_OR'>"
+p348
+sg56
+S"<Storage {'_vars': None, 'function': 'index', 'c...ih\\\\Desktop\\\\cmps183\\\\applications\\\\loveslug\\\\'}>"
+p349
+sS'IS_EXPR'
+p350
+S"<class 'gluon.validators.IS_EXPR'>"
+p351
+sS'IS_IN_SET'
+p352
+S"<class 'gluon.validators.IS_IN_SET'>"
+p353
+sS'IS_UPLOAD_FILENAME'
+p354
+S"<class 'gluon.validators.IS_UPLOAD_FILENAME'>"
+p355
+sS'IS_DECIMAL_IN_RANGE'
+p356
+S"<class 'gluon.validators.IS_DECIMAL_IN_RANGE'>"
+p357
+sS'TT'
+p358
+S"<class 'gluon.html.TT'>"
+p359
+sS'T'
+S'<gluon.languages.translator object>'
+p360
+sssS'traceback'
+p361
+S'Traceback (most recent call last):\n  File "C:\\Users\\Josh Shih\\Desktop\\cmps183\\gluon\\restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "C:\\Users\\Josh Shih\\Desktop\\cmps183\\applications\\loveslug\\models\\tables.py", line 19, in <module>\n    db.define_table(\'person\',\nNameError: name \'db\' is not defined\n'
+p362
+s.
