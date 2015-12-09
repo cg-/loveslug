@@ -89,6 +89,14 @@
                     <h1> {{db.preferences.female}}</h1>
                     <td><img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;" /></td>
                     <h3>{{=A(users.your_name, _href=URL('default', 'profile', args=[users.user_id]))}}</h3>
+                {{if auth.user:}}
+                    <span class="thumbs-up">
+                        <i class="fa fa-thumbs-o-up"></i>
+                    </span>
+                    <span class="thumbs-down">
+                        <i class="fa fa-thumbs-o-down"></i>
+                    </span>
+                  {{ pass }}
                 {{ pass }}
                 {{ #pass }}
                 {{ #pass }}
