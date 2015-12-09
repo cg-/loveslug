@@ -58,46 +58,87 @@
     <center>
         <div id="message-client"></div>
     </center>
+</div>
 </body>
+
 <script id="message-template" type="text/ractive">
-    <button on-click="test">
-    Test
-    </button>
+    {% #if show_message_list %}
     <h2 style="color:white">Received Messages</h2>
     <hr>
 
     <table class="message-table">
         <tr>
-            <td class="message-table-head">From</td>
+            <td class="message-table-head" style="width: 30%">From</td>
             <td class="message-table-head">Subject</td>
         </tr>
 
     {% #each rec_messages %}
-        <tr>
+        <tr id="{% message_id %}" on-click="read_rec">
             <td>{% sender %}</td>
             <td>{% subject %}</td>
         </tr>
     {% /each %}
     </table>
 
-
-
     <h2 style="color:white">Sent Messages</h2>
     <hr>
 
     <table class="message-table">
         <tr>
-            <td class="message-table-head">To</td>
+            <td class="message-table-head" style="width: 30%">To</td>
             <td class="message-table-head">Subject</td>
         </tr>
 
     {% #each sent_messages %}
-        <tr>
+        <tr id="{% message_id %}" on-click="read_sent">
             <td>{% receiver %}</td>
             <td>{% subject %}</td>
         </tr>
     {% /each %}
     </table>
+
+    {% else %}
+    <button on-click="back">
+    Back
+    </button>
+    <br />
+    <br />
+    <center>
+    <table class="message-table">
+        <tr>
+            <td class="message-table-head" style="width: 30%">From</td>
+            <td>{% displayed_message.sender %}</td>
+        </tr>
+        <tr>
+            <td class="message-table-head" style="width: 30%">To</td>
+            <td>{% displayed_message.receiver %}</td>
+        </tr>
+        <tr>
+            <td class="message-table-head" style="width: 30%">Subject</td>
+            <td>{% displayed_message.subject %}</td>
+        </tr>
+        <tr>
+            <td class="message-table-head" style="width: 30%">Body</td>
+            <td>{% displayed_message.body %}</td>
+        </tr>
+    </table>
+    </center>
+    <br />
+    <br />
+    {% #if displayed_is_rec %}
+    <h2>Reply</h2>
+    <textarea on-blur="update-reply" id="reply-field" rows=18 style="width: 75%; background-color: transparent; color: white"></textarea>
+    <br />
+    <button on-click="send-reply">
+    Send
+    </button>
+    {% /if %}
+    <br />
+    <br />
+    <button on-click="back">
+    Back
+    </button>
+    {% /if %}
 </script>
 
 <script>
@@ -111,20 +152,49 @@
             data: {
                 sent_messages: '',
                 rec_messages: '',
+                show_message_list: true,
+                displayed_message: '',
+                displayed_is_rec: false,
+                reply_text: ''
             },
         });
 
-        RACTIVE.on("test", function(e){
-            var receiver = 1;
-            var body = "test message";
-            var subject = "test subject";
+        RACTIVE.on("update-reply", function(e){
+            RACTIVE.set('reply_text', e.node.value);
+        });
 
+        RACTIVE.on("send-reply", function(e){
+            var msg = RACTIVE.get('displayed_message');
+            var to = msg.sender;
+            var subject = "RE: " + msg.subject;
+            var body = RACTIVE.get('reply_text');
+            console.log(to + subject + body);
+            sendMessage(to, subject, body);
+        });
 
+        RACTIVE.on("read_rec", function(e){
+            RACTIVE.set('displayed_message', RACTIVE.get("rec_messages")[(e.node.id)]);
+            RACTIVE.set('displayed_is_rec', true);
+            RACTIVE.set('show_message_list', false);
+        });
+
+        RACTIVE.on("read_sent", function(e){
+            RACTIVE.set('displayed_message', RACTIVE.get("sent_messages")[(e.node.id)]);
+            RACTIVE.set('displayed_is_rec', false);
+            RACTIVE.set('show_message_list', false);
+        });
+
+        RACTIVE.on("back", function(e){
+            RACTIVE.set('displayed_message', '');
+            RACTIVE.set('show_message_list', true);
+        });
+
+        var sendMessage = function(rec, subject, body){
             $.ajax("{{=URL('default', 'send_message', user_signature=True)}}",
                     {
                         data: {
                             message_id: generateUUID(),
-                            receiver: receiver, // request.vars.msg
+                            receiver: rec, // request.vars.msg
                             body: body, // request.vars.is_draft
                             subject: subject // request.vars.msg_id
                         },
@@ -135,7 +205,7 @@
                         error: function() {}
                     }
             );
-        });
+        };
 
         var updateMessages = function(){
             $.ajax("{{=URL('default', 'get_messages', user_signature=True)}}",

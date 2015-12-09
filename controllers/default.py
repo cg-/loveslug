@@ -45,6 +45,7 @@ def get_messages():
         'body':r.body,
         'subject':r.subject,
         'seen':r.seen,
+        'message_id':r.message_id,
         'sent':r.sent}
           for r in rec_rows}
 
@@ -57,6 +58,7 @@ def get_messages():
         'body':r.body,
         'subject':r.subject,
         'seen':r.seen,
+        'message_id':r.message_id,
         'sent':r.sent }
           for r in sent_rows}
 
