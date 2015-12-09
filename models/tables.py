@@ -69,3 +69,9 @@ db.define_table('preferences',
                 Field('male', 'text', default = "1 is true, 0 is false"),
                 Field('female', 'text', default = "1 is true, 0 is false"),
 )
+
+db.define_table('rating',
+                Field('user_id', db.auth_user, default=auth.user_id),
+                Field('image_id', 'integer'),
+                Field('thumbs'), # This field can have value 'u' (for up), 'd' (for down), or None (no vote).
+                )
