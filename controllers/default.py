@@ -20,11 +20,12 @@ dateTips =  [   "You miss 100% of the shots you don't take... [Wayne Gretzky]",
                 "The doors will be opened to those who are bold enough to knock...",
                 "Life has no remote. Get up and change it yourself...",
                 "All glory comes from a daring to begin...",
-                "You are not born a winner; you are not born a loser. You are born a chooser..."
+                "You are not born a winner; you are not born a loser. You are born a chooser...",
+                "Now is your chance to make a move!",
             ]
 
-profTips =  [   "People see your image before hellos. Be sure to take a good picture!",
-                "Keep it simple and mysterious, yet exciting!",
+profTips =  [   "People see your picture before hellos. Be sure to take a good picture!",
+                "Keep it simple and mysterious!",
                 "What most interests you? What are your hobbies?",
                 "Don't leave your profile empty!",
             ]
