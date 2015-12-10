@@ -109,6 +109,7 @@ def settings():
     profile = db(db.pref.user_id == auth.user).select().first()
     print profile
     form = SQLFORM(db.pref,
+                   showid=False,
                    fields=[
                         'male',
                         'female',
