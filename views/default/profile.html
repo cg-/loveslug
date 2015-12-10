@@ -104,7 +104,6 @@
                 tip_box: "",
             },
         });
-
         RACTIVE.on("clicked-message", function(e){
             RACTIVE.set('show_message_edit', true);
         });
@@ -164,7 +163,17 @@
             return uuid;
         }
 
-        $.ajax("{{=URL('default','loadTips', args="0")}}",
+        var MAIN = new Ractive({
+            el: '#target',
+            template: '#template',
+            delimiters: ['{%', '%}'],
+            tripleDelimiters: ['{%%', '%%}'],
+            data: {
+                tip_dict: {},
+                tip_box: "",
+            },
+        });
+        $.ajax("{{=URL('default','loadTips', args="1")}}",
             {
                 method: 'POST',
                 success: function (data) {
@@ -173,7 +182,7 @@
             }
         );
         function load_tip(){
-            $.ajax("{{=URL('default', 'selRandTip', args="0")}}",
+            $.ajax("{{=URL('default', 'selRandTip', args="1")}}",
                 {
                     method: 'POST',
                     success: function (data) {

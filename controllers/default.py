@@ -28,6 +28,13 @@ profTips =  [   "People see your picture before hellos. Be sure to take a good p
                 "Keep it simple and mysterious!",
                 "What most interests you? What are your hobbies?",
                 "Don't leave your profile empty!",
+                "Keep your facts straight. No one likes a liar.",
+                "Skeletons belong in the closet, not on a profile page.",
+                "Broaden your horizons",
+                "It's only stalking if you don't talk to them",
+                "Know who you want and what you want.",
+                "Don't become a professional online dater.",
+                "Ask questions, but most importantly, LISTEN!",
             ]
 
 def index():
