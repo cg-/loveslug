@@ -129,15 +129,30 @@ def myprofile():
 def profile():
     profile_id = db.person(request.args(0))
     thisprofile = db(db.person.user_id == profile_id).select()
-    thumb_profile = db().select(db.person.user_id, db.person.image, db.person.your_name, db.person.profile_id, db.person.thumbs)
-    return dict(thisprofile=thisprofile, thumb_profile=thumb_profile)
+    thumb_profile = db(db.rating.user_id == profile_id).select()
+
+    def get_thumbs(profileindex):
+        if not auth.user_id:
+            return None
+        r = db((db.rating.user_id == auth.user_id) & (db.rating.profile_id == profileindex)).select().first()
+        return None if r is None else r.thumbs
+
+    user_list = []
+    for i, user_lst in enumerate(thisprofile):
+        user_list.append(dict(
+        url= user_lst,
+        thumbs = get_thumbs(i),
+        id=i,
+    ))
+
+    return dict(thisprofile=thisprofile, thumb_profile=thumb_profile, user_list=user_list)
 
 @auth.requires_signature()
 def vote():
     picid = int(request.vars.picid)
     thumbs = request.vars.thumbs
-    db.person.update_or_insert(
-        ((db.person.profile_id == picid) & (db.person.user_id == auth.user_id)),
+    db.rating.update_or_insert(
+        ((db.rating.profile_id == picid) & (db.rating.user_id == auth.user_id)),
         profile_id = picid,
         user_id = auth.user_id,
         thumbs = thumbs

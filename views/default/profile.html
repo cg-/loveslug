@@ -1,6 +1,13 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
+
+{{if auth.user_id is None:}}
+  {{redirect(URL('index'))}}
+{{else:}}
+
+
+
 <body class="background">
   <div class="container-fluid">
     <div class="title col-md-12">
@@ -37,9 +44,9 @@
             <tr><td>Interests:</td><td>{{=thisprofile[-1].interests}}</td></tr>
             <tr><td>Major:</td><td>{{=thisprofile[-1].major}}</td></tr>
             <tr><td>Location:</td><td>{{=thisprofile[-1].college}}</td></tr>
-            {{for users in thumb_profile:}}
+            {{for users in user_list:}}
               {{if auth.user:}}
-                <span class="thumb-rating" data-picid="{{=users['profile_id']}}">
+                <span class="thumb-rating" data-picid="{{=users['id']}}">
                   <input class="form-control rating" value="{{=users['thumbs']}}" style="display:none"/>
                     <span class="thumbs-up">
                       <i class="fa fa-thumbs-o-up"></i>
@@ -316,3 +323,5 @@ jQuery('span.thumb-rating').each(function(){
     });
 
 </script>
+
+{{pass}}
