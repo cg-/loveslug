@@ -33,6 +33,9 @@ db.define_table('person',
                                                     'Porter', 'Kresge',
                                                     'Oakes','Eight',
                                                     'Off Campus'])),
+                Field('profile_id', 'integer'),
+                Field('thumbs'), # This field can have value 'u' (for up), 'd' (for down), or None (no vote).
+
                )
 
 db.person.id.readable = False
@@ -70,8 +73,4 @@ db.define_table('preferences',
                 Field('female', 'text', default = "1 is true, 0 is false"),
 )
 
-db.define_table('rating',
-                Field('user_id', db.auth_user, default=auth.user_id),
-                Field('image_id', 'integer'),
-                Field('thumbs'), # This field can have value 'u' (for up), 'd' (for down), or None (no vote).
-                )
+

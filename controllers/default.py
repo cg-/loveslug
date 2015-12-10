@@ -117,7 +117,20 @@ def myprofile():
 def profile():
     profile_id = db.person(request.args(0))
     thisprofile = db(db.person.user_id == profile_id).select()
-    return dict(thisprofile=thisprofile)
+    thumb_profile = db().select(db.person.user_id, db.person.image, db.person.your_name, db.person.profile_id, db.person.thumbs)
+    return dict(thisprofile=thisprofile, thumb_profile=thumb_profile)
+
+@auth.requires_signature()
+def vote():
+    picid = int(request.vars.picid)
+    thumbs = request.vars.thumbs
+    db.person.update_or_insert(
+        ((db.person.profile_id == picid) & (db.person.user_id == auth.user_id)),
+        profile_id = picid,
+        user_id = auth.user_id,
+        thumbs = thumbs
+    )
+    return "ok"
 
 
 def editprofile():

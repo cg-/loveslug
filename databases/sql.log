@@ -3828,3 +3828,66 @@ CREATE TABLE email(
     message_id CHAR(512)
 );
 success!
+timestamp: 2015-12-09T19:08:22.995000
+ALTER TABLE person ADD profile_id INTEGER;
+timestamp: 2015-12-09T19:08:23.003000
+ALTER TABLE person ADD thumbs CHAR(512);
+success!
+DELETE FROM person;
+DELETE FROM sqlite_sequence WHERE name='person';
+success!
+DELETE FROM chat;
+DELETE FROM sqlite_sequence WHERE name='chat';
+success!
+DELETE FROM email;
+DELETE FROM sqlite_sequence WHERE name='email';
+success!
+DELETE FROM auth_user;
+DELETE FROM sqlite_sequence WHERE name='auth_user';
+success!
+DROP TABLE person;
+success!
+DROP TABLE chat;
+success!
+DROP TABLE email;
+success!
+timestamp: 2015-12-09T19:13:52.123000
+CREATE TABLE person(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    your_name CHAR(512),
+    birthday DATE,
+    gender CHAR(512),
+    seeking_a CHAR(512),
+    image CHAR(512),
+    about_me TEXT,
+    interests TEXT,
+    major CHAR(512),
+    college CHAR(512),
+    profile_id INTEGER,
+    thumbs CHAR(512)
+);
+success!
+timestamp: 2015-12-09T19:13:52.130000
+CREATE TABLE chat(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender CHAR(512),
+    receiver CHAR(512),
+    body CHAR(512),
+    seen CHAR(512),
+    sent CHAR(512),
+    message_id CHAR(512)
+);
+success!
+timestamp: 2015-12-09T19:13:52.152000
+CREATE TABLE email(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sender CHAR(512),
+    receiver CHAR(512),
+    body CHAR(512),
+    subject CHAR(512),
+    seen CHAR(512),
+    sent CHAR(512),
+    message_id CHAR(512)
+);
+success!
