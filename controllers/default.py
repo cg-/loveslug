@@ -39,7 +39,7 @@ def index():
 
 def matches():
     thisprofile = db(db.person.user_id == auth.user).select()
-    matches = db.select(db.person.seeking_a == this.profile.gender)
+    matches = db.select(db.person.seeking_a == thisprofile.gender)
     return dict(thisprofile=thisprofile, matches=matches)
 
 def messages():
@@ -135,23 +135,7 @@ def myprofile():
 def profile():
     profile_id = db.person(request.args(0))
     thisprofile = db(db.person.user_id == profile_id).select()
-    thumb_profile = db(db.rating.user_id == profile_id).select()
-
-    def get_thumbs(profileindex):
-        if not auth.user_id:
-            return None
-        r = db((db.rating.user_id == auth.user_id) & (db.rating.profile_id == profileindex)).select().first()
-        return None if r is None else r.thumbs
-
-    user_list = []
-    for i, user_lst in enumerate(thisprofile):
-        user_list.append(dict(
-        url= user_lst,
-        thumbs = get_thumbs(i),
-        id=i,
-    ))
-
-    return dict(thisprofile=thisprofile, thumb_profile=thumb_profile, user_list=user_list)
+    return dict(thisprofile=thisprofile)
 
 @auth.requires_signature()
 def vote():

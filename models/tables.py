@@ -34,8 +34,6 @@ db.define_table('person',
                                                     'Oakes','Eight',
                                                     'Off Campus'])),
                 Field('profile_id', 'integer'),
-                Field('thumbs'), # This field can have value 'u' (for up), 'd' (for down), or None (no vote).
-
                )
 
 db.person.id.readable = False
@@ -83,9 +81,3 @@ db.define_table('pref',
 )
 
 db.pref.user_id.readable = False
-
-db.define_table('rating',
-                Field('user_id', db.auth_user, default=auth.user),
-                Field('profile_id', 'integer'),
-                Field('thumbs'), # This field can have value 'u' (for up), 'd' (for down), or None (no vote).
-                )

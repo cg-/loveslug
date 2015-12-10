@@ -118,7 +118,9 @@
             tripleDelimiters: ['{%%', '%%}'],
             data: {
                 sent_messages: '',
+                sent_messages_data: '',
                 rec_messages: '',
+                rec_messages_data: '',
                 show_message_list: true,
                 displayed_message: '',
                 displayed_is_rec: false,
@@ -144,13 +146,15 @@
         });
 
         RACTIVE.on("read_rec", function(e){
-            RACTIVE.set('displayed_message', RACTIVE.get("rec_messages")[(e.node.id)]);
+            RACTIVE.set('displayed_message', RACTIVE.get("rec_messages_data")[(e.node.id)]);
+            console.log(RACTIVE.get('rec_messages'));
             RACTIVE.set('displayed_is_rec', true);
             RACTIVE.set('show_message_list', false);
         });
 
         RACTIVE.on("read_sent", function(e){
-            RACTIVE.set('displayed_message', RACTIVE.get("sent_messages")[(e.node.id)]);
+            RACTIVE.set('displayed_message', RACTIVE.get("sent_messages_data")[(e.node.id)]);
+            console.log(RACTIVE.get('sent_messages'));
             RACTIVE.set('displayed_is_rec', false);
             RACTIVE.set('show_message_list', false);
         });
@@ -183,6 +187,9 @@
                     {
                         method: 'POST',
                         success: function (data) {
+                            RACTIVE.set('sent_messages_data', data['sent_messages']);
+                            RACTIVE.set('rec_messages_data', data['rec_messages']);
+
                             // http://stackoverflow.com/questions/5199901/how-to-sort-an-associative-array-by-its-values-in-javascript
                             var sent_tuples = [];
                             var sent = [];
@@ -246,7 +253,7 @@
                 {
                     method: 'POST',
                     success: function (data) {
-                        MAIN.set('tip_dict', data['tip_dict']);
+                        RACTIVE.set('tip_dict', data['tip_dict']);
                     }
                 }
         );
@@ -255,14 +262,14 @@
                     {
                         method: 'POST',
                         success: function (data) {
-                            MAIN.set('tip_box', data);
+                            RACTIVE.set('tip_box', data);
                         }
                     }
             )
         }
 
         load_tip();
-        MAIN.on("changeTip", function (e) {
+        RACTIVE.on("changeTip", function (e) {
             load_tip();
         });
     });
