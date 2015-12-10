@@ -92,9 +92,9 @@ def chat():
     return dict(sentChats=sentChats, recChats=recChats)
 
 def settings():
-    profile = db(db.preferences.user_id == auth.user).select().first()
+    profile = db(db.pref.user_id == auth.user).select().first()
     print profile
-    form = SQLFORM(db.preferences,
+    form = SQLFORM(db.pref,
                    fields=[
                        'male',
                        'female',

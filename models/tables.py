@@ -64,7 +64,7 @@ db.define_table('email',
                 Field('message_id', requires=IS_NOT_EMPTY()),# ID of message
                 )
 
-db.define_table('preferences',
+db.define_table('pref',
                 Field('user_id', db.auth_user, default=auth.user),
 
                 #using integers for now for testing purposes -- will change everything back to booleans after problems are resolved
