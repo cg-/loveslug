@@ -81,28 +81,14 @@
         <div class="matchpictures">
             <table>
                 <tr>
-                    <!-- why is this displaying nothing? -->
-                    <h1> {{db.pref.male}} </h1>
-
-                    <h1> {{db.pref.female}} </h1>
-
-                    <!-- if statement being ignored for unknown reasons -- supposed to only show all the pictures if both male and female are true -->
-                {{ if db.pref.male=="1" and db.pref.female=="1":}}
-
-                    <!-- actual if statements used once above problem is solved-->
-                {{ #elif (db.preferences.female=="1" and users.gender == "Female"):}}
-                {{ #elif (db.preferences.male=="1" and users.gender == "Male"):}}
-                {{ #if users.college == myprofile[-1].college : }}
-
-
-                    <h1> {{db.pref.female}}</h1>
+                    {{for e in prefs:}}
+                {{ if ((e['male'] and users.gender == "Male") or (e['female'] and users.gender == "Female")) and ((e['Porter'] and users.college == "Porter") or (e['Kresge'] and users.college == "Kresge") or (e['Merrill'] and users.college == "Merrill") or (e['Crown'] and users.college == "Crown") or (e['Oakes'] and users.college == "Oakes") or (e['Cowell'] and users.college == "Cowell") or (e['Stevenson'] and users.college == "Stevenson") or (e['Eight'] and users.college == "Eight") or (e['Nine'] and users.college == "Nine") or (e['Ten'] and users.college == "Ten")) :}}
                     <td><img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;"/>
                     </td>
                     <h3>{{=A(users.your_name, _href=URL('default', 'profile', args=[users.user_id]))}}</h3>
-
                 {{ pass }}
-                {{ #pass }}
-                {{ #pass }}
+                {{pass}}
+                {{ #if users.college == myprofile[-1].college : }}
                 </tr>
             </table>
         </div>

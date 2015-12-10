@@ -66,11 +66,18 @@ db.define_table('email',
 
 db.define_table('pref',
                 Field('user_id', db.auth_user, default=auth.user),
-
-                #using integers for now for testing purposes -- will change everything back to booleans after problems are resolved
-
-                Field('male', 'text', default = "1 is true, 0 is false"),
-                Field('female', 'text', default = "1 is true, 0 is false"),
+                Field('male', 'boolean'),
+                Field('female', 'boolean'),
+                Field('Porter', 'boolean'),
+                Field('Kresge', 'boolean'),
+                Field('Merrill', 'boolean'),
+                Field('Crown', 'boolean'),
+                Field('Oakes', 'boolean'),
+                Field('Cowell', 'boolean'),
+                Field('Stevenson', 'boolean'),
+                Field('Eight', 'boolean'),
+                Field('Nine', 'boolean'),
+                Field('Ten', 'boolean'),
 )
-
+db.pref.user_id.readable = False
 

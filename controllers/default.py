@@ -34,7 +34,8 @@ def index():
     #display
     profile = db().select(db.person.user_id, db.person.image, db.person.your_name, db.person.college, db.person.birthday, db.person.seeking_a, db.person.gender)
     myprofile = db(db.person.user_id == auth.user).select()
-    return dict(myprofile=myprofile, form=auth(), profile=profile)
+    prefs = db(db.pref.user_id == auth.user).select()
+    return dict(myprofile=myprofile, form=auth(), profile=profile, prefs=prefs)
 
 def matches():
     thisprofile = db(db.person.user_id == auth.user).select()
@@ -96,9 +97,20 @@ def settings():
     print profile
     form = SQLFORM(db.pref,
                    fields=[
-                       'male',
-                       'female',
+                        'male',
+                        'female',
+                        'Porter',
+                        'Kresge',
+                        'Merrill',
+                        'Crown',
+                        'Oakes',
+                        'Cowell',
+                        'Stevenson',
+                        'Eight',
+                        'Nine',
+                        'Ten',
                    ],
+
                    record=profile
                    )
     form.vars.setdefault('user_id', auth.user)

@@ -3911,3 +3911,130 @@ CREATE TABLE pref(
     female TEXT
 );
 success!
+success!
+timestamp: 2015-12-09T22:07:57.872757
+ALTER TABLE pref ADD ten CHAR(1);
+timestamp: 2015-12-09T22:07:57.875625
+ALTER TABLE pref ADD merrill CHAR(1);
+timestamp: 2015-12-09T22:07:57.877114
+ALTER TABLE pref ADD stevenson CHAR(1);
+timestamp: 2015-12-09T22:07:57.878413
+ALTER TABLE pref ADD crown CHAR(1);
+timestamp: 2015-12-09T22:07:57.879485
+ALTER TABLE pref ADD oakes CHAR(1);
+timestamp: 2015-12-09T22:07:57.880889
+ALTER TABLE pref ADD nine CHAR(1);
+timestamp: 2015-12-09T22:07:57.881785
+ALTER TABLE pref ADD kresge CHAR(1);
+timestamp: 2015-12-09T22:07:57.883025
+ALTER TABLE pref ADD eight CHAR(1);
+timestamp: 2015-12-09T22:07:57.884215
+ALTER TABLE pref ADD cowell CHAR(1);
+timestamp: 2015-12-09T22:07:57.885350
+ALTER TABLE pref ADD porter CHAR(1);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+timestamp: 2015-12-09T22:51:30.121053
+ALTER TABLE pref ADD gender CHAR(512);
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
