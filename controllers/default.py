@@ -48,10 +48,12 @@ def messages():
 def get_messages():
     '''This will return all emails that the user has sent or received -cole '''
     rec_rows = db(db.email.receiver==auth.user_id).select(orderby=db.email.sent)
-
+    print
     d1 = {r.message_id: {
         'sender':r.sender,
+        'sendername':r.sendername,
         'receiver':r.receiver,
+        'receivername':r.receivername,
         'body':r.body,
         'subject':r.subject,
         'seen':r.seen,
@@ -63,7 +65,9 @@ def get_messages():
 
     d2 = {r.message_id: {
         'sender':r.sender,
+        'sendername':r.sendername,
         'receiver':r.receiver,
+        'receivername':r.receivername,
         'body':r.body,
         'subject':r.subject,
         'seen':r.seen,
@@ -79,7 +83,9 @@ def send_message():
     db.email.update_or_insert((db.email.message_id == request.vars.message_id),
             message_id=request.vars.message_id,
             sender=auth.user_id,
+            sendername=db(db.auth_user.id == auth.user_id).select().first().first_name,
             receiver=request.vars.receiver,
+            receivername=db(db.auth_user.id == request.vars.receiver).select().first().first_name,
             body=request.vars.body,
             subject=request.vars.subject,
             seen=False,

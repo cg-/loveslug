@@ -56,7 +56,9 @@ db.define_table('chat',
 # - Cole
 db.define_table('email',
                 Field('sender', requires=IS_NOT_EMPTY()),   # User who sent
+                Field('sendername', requires=IS_NOT_EMPTY()),   # User who sent
                 Field('receiver', requires=IS_NOT_EMPTY()), # User who it's to'
+                Field('receivername', requires=IS_NOT_EMPTY()), # User who it's to'
                 Field('body', requires=IS_NOT_EMPTY()),     # Text in chat message
                 Field('subject', requires=IS_NOT_EMPTY()),  # Subject of message
                 Field('seen', requires=IS_NOT_EMPTY()),     # Has it been seen?
@@ -79,6 +81,7 @@ db.define_table('pref',
                 Field('Nine', 'boolean'),
                 Field('Ten', 'boolean'),
 )
+
 db.pref.user_id.readable = False
 
 db.define_table('rating',

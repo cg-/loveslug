@@ -46,7 +46,7 @@
 
     {% #each rec_messages %}
         <tr id="{% message_id %}" on-click="read_rec">
-            <td>{% sender %}</td>
+            <td>{% sendername %}</td>
             <td>{% subject %}</td>
         </tr>
     {% /each %}
@@ -62,7 +62,7 @@
 
     {% #each sent_messages %}
         <tr id="{% message_id %}" on-click="read_sent">
-            <td>{% receiver %}</td>
+            <td>{% receivername %}</td>
             <td>{% subject %}</td>
         </tr>
     {% /each %}
@@ -75,11 +75,11 @@
     <table class="message-table" style="width:30%">
         <tr>
             <td class="message-table-head" style="width: 30%">From</td>
-            <td>{% displayed_message.sender %}</td>
+            <td>{% displayed_message.sendername %}</td>
         </tr>
         <tr>
             <td class="message-table-head" style="width: 30%">To</td>
-            <td>{% displayed_message.receiver %}</td>
+            <td>{% displayed_message.receivername %}</td>
         </tr>
         <tr>
             <td class="message-table-head" style="width: 30%">Subject</td>
