@@ -82,12 +82,12 @@
             <table>
                 <tr>
                     <!-- why is this displaying nothing? -->
-                    <h1> {{db.preferences.male}} </h1>
+                    <h1> {{db.pref.male}} </h1>
 
-                    <h1> {{db.preferences.female}} </h1>
+                    <h1> {{db.pref.female}} </h1>
 
                     <!-- if statement being ignored for unknown reasons -- supposed to only show all the pictures if both male and female are true -->
-                {{ if db.preferences.male=="1" and db.preferences.female=="1":}}
+                {{ if db.pref.male=="1" and db.pref.female=="1":}}
 
                     <!-- actual if statements used once above problem is solved-->
                 {{ #elif (db.preferences.female=="1" and users.gender == "Female"):}}
@@ -95,7 +95,7 @@
                 {{ #if users.college == myprofile[-1].college : }}
 
 
-                    <h1> {{db.preferences.female}}</h1>
+                    <h1> {{db.pref.female}}</h1>
                     <td><img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;"/>
                     </td>
                     <h3>{{=A(users.your_name, _href=URL('default', 'profile', args=[users.user_id]))}}</h3>
