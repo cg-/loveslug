@@ -250,27 +250,38 @@
 
         setInterval(updateMessages, 5000);
 
-        $.ajax("{{=URL('default','loadTips', args="0")}}",
+        // Ractive object
+        var MAIN = new Ractive({
+            el: '#target',
+            template: '#template',
+            delimiters: ['{%', '%}'],
+            tripleDelimiters: ['{%%', '%%}'],
+            data: {
+                tip_dict: {},
+                tip_box: "",
+            },
+        });
+        $.ajax("{{=URL('default','loadTips', args="1")}}",
                 {
                     method: 'POST',
                     success: function (data) {
-                        RACTIVE.set('tip_dict', data['tip_dict']);
+                        MAIN.set('tip_dict', data['tip_dict']);
                     }
                 }
         );
         function load_tip() {
-            $.ajax("{{=URL('default', 'selRandTip', args="0")}}",
+            $.ajax("{{=URL('default', 'selRandTip', args="1")}}",
                     {
                         method: 'POST',
                         success: function (data) {
-                            RACTIVE.set('tip_box', data);
+                            MAIN.set('tip_box', data);
                         }
                     }
             )
         }
 
         load_tip();
-        RACTIVE.on("changeTip", function (e) {
+        MAIN.on("changeTip", function (e) {
             load_tip();
         });
     });
