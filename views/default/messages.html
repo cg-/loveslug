@@ -209,18 +209,19 @@
                                 sent.push(value);
                             }
 
-                            var tuples = [];
+                            var rec_tuples = [];
                             var rec = [];
-                            tuples.sort(function(a, b) {
+                            for (var key in data['rec_messages']) rec_tuples.push([key, data['rec_messages'][key]]);
+                            rec_tuples.sort(function(a, b) {
                                 a = a[1]['sent'];
                                 b = b[1]['sent'];
 
                                 return a < b ? -1 : (a > b ? 1 : 0);
                             });
 
-                            for (var i = 0; i < tuples.length; i++) {
-                                var key = tuples[i][0];
-                                var value = tuples[i][1];
+                            for (var i = 0; i < rec_tuples.length; i++) {
+                                var key = rec_tuples[i][0];
+                                var value = rec_tuples[i][1];
 
                                 rec.push(value);
                             }
