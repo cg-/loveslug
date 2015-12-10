@@ -64,20 +64,17 @@
             DAILY HOTTIES
         </h1></center>
         <br>
-        <blockquote>
-            <center><p>
-                <!-- TIPS -->
-                <!-- RACTIVE -->
-
-                <div id="target"></div>
-                <script id="template" type="text/ractive">
-                 <small style="color:white; cursor:default" on-click="changeTip">
-                   {% tip_box %}
-                 </small>
-                </script>
-                </p>
-            </center>
-        </blockquote>
+          <center><p>
+              <!-- TIPS -->
+              <!-- RACTIVE -->
+              <div id="target"></div>
+              <script id="template" type="text/ractive">
+               <medium style="color:white; cursor:default" on-click="changeTip">
+                 '' -{% tip_box %}''
+               </medium>
+              </script>
+              </p>
+          </center>
         <br><br>
 
     {{ for users in profile: }}

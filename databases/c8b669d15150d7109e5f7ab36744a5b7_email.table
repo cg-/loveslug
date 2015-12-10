@@ -22,7 +22,7 @@ sS'type'
 p10
 S'string'
 p11
-ssS'message_id'
+ssS'sender'
 p12
 (dp13
 g4
@@ -30,7 +30,7 @@ I512
 sg5
 I00
 sg6
-I8
+I2
 sg7
 S'CHAR(512)'
 p14
@@ -38,7 +38,7 @@ sg9
 I00
 sg10
 g11
-ssS'sender'
+ssS'message_id'
 p15
 (dp16
 g4
@@ -46,7 +46,7 @@ I512
 sg5
 I00
 sg6
-I2
+I8
 sg7
 S'CHAR(512)'
 p17
@@ -101,11 +101,10 @@ p26
 sg9
 I00
 sg10
-S'id'
-p27
+g24
 ssS'sent'
-p28
-(dp29
+p27
+(dp28
 g4
 I512
 sg5
@@ -114,14 +113,14 @@ sg6
 I7
 sg7
 S'CHAR(512)'
-p30
+p29
 sg9
 I00
 sg10
 g11
 ssS'subject'
-p31
-(dp32
+p30
+(dp31
 g4
 I512
 sg5
@@ -130,7 +129,7 @@ sg6
 I5
 sg7
 S'CHAR(512)'
-p33
+p32
 sg9
 I00
 sg10
