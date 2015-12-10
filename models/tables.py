@@ -74,3 +74,8 @@ db.define_table('pref',
 )
 
 
+db.define_table('rating',
+                Field('user_id', db.auth_user, default=auth.user),
+                Field('profile_id', 'integer'),
+                Field('thumbs'), # This field can have value 'u' (for up), 'd' (for down), or None (no vote).
+                )

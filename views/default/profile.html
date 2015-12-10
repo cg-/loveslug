@@ -37,9 +37,9 @@
             <tr><td>Interests:</td><td>{{=thisprofile[-1].interests}}</td></tr>
             <tr><td>Major:</td><td>{{=thisprofile[-1].major}}</td></tr>
             <tr><td>Location:</td><td>{{=thisprofile[-1].college}}</td></tr>
-            {{for users in thisprofile:}}
+            {{for users in user_list:}}
               {{if auth.user:}}
-                <span class="thumb-rating" data-picid="{{=users['profile_id']}}">
+                <span class="thumb-rating" data-picid="{{=users['id']}}">
                   <input class="form-control rating" value="{{=users['thumbs']}}" style="display:none"/>
                     <span class="thumbs-up">
                       <i class="fa fa-thumbs-o-up"></i>
