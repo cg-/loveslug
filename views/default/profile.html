@@ -37,10 +37,10 @@
             <tr><td>Interests:</td><td>{{=thisprofile[-1].interests}}</td></tr>
             <tr><td>Major:</td><td>{{=thisprofile[-1].major}}</td></tr>
             <tr><td>Location:</td><td>{{=thisprofile[-1].college}}</td></tr>
-
+            {{for users in thisprofile:}}
               {{if auth.user:}}
-                <span class="thumb-rating" data-picid="{{=['profile_id']}}">
-                  <input class="form-control rating" value="{{=['thumbs']}}" style="display:none"/>
+                <span class="thumb-rating" data-picid="{{=users['profile_id']}}">
+                  <input class="form-control rating" value="{{=users['thumbs']}}" style="display:none"/>
                     <span class="thumbs-up">
                       <i class="fa fa-thumbs-o-up"></i>
                     </span>
@@ -50,7 +50,7 @@
                 </span>
               {{pass}}
             {{pass}}
-
+            {{pass}}
           </table>
           <br><br>
           <div id="message-box" style="width:75%"></div>
