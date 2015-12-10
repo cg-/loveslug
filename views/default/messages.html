@@ -8,10 +8,18 @@
               MESSAGE BOX
             </h1></center><br>
             <blockquote>
-              <center><p>
-              <!-- TIPS -->
-               <small>{{=tip}} </small>
-              </p> 
+            <center><p>
+                <!-- TIPS -->
+                <!-- RACTIVE -->
+
+                <div id="target"></div>
+                <script id="template" type="text/ractive">
+                 <small style="color:white; cursor:default" on-click="changeTip">
+                   {% tip_box %}
+                 </small>
+                </script>
+                </p>
+            </center>
             </blockquote></center><br><br>
             <br><br>
         </div>
@@ -109,7 +117,9 @@
                 show_message_list: true,
                 displayed_message: '',
                 displayed_is_rec: false,
-                reply_text: ''
+                reply_text: '',
+                tip_dict: {},
+                tip_box: "",
             },
         });
 
@@ -226,6 +236,30 @@
         updateMessages();
 
         setInterval(updateMessages, 5000);
+
+        $.ajax("{{=URL('default','loadTips', args="0")}}",
+                {
+                    method: 'POST',
+                    success: function (data) {
+                        MAIN.set('tip_dict', data['tip_dict']);
+                    }
+                }
+        );
+        function load_tip() {
+            $.ajax("{{=URL('default', 'selRandTip', args="0")}}",
+                    {
+                        method: 'POST',
+                        success: function (data) {
+                            MAIN.set('tip_box', data);
+                        }
+                    }
+            )
+        }
+
+        load_tip();
+        MAIN.on("changeTip", function (e) {
+            load_tip();
+        });
     });
 
 </script>

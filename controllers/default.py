@@ -34,7 +34,7 @@ def index():
     #display
     profile = db().select(db.person.user_id, db.person.image, db.person.your_name, db.person.college, db.person.birthday, db.person.seeking_a, db.person.gender)
     myprofile = db(db.person.user_id == auth.user).select()
-    return dict(myprofile=myprofile, form=auth(), profile=profile, tip=selRandTip(dateTips))
+    return dict(myprofile=myprofile, form=auth(), profile=profile)
 
 def matches():
     thisprofile = db(db.person.user_id == auth.user).select()
@@ -42,7 +42,7 @@ def matches():
     return dict(thisprofile=thisprofile, matches=matches)
 
 def messages():
-    return dict(tip=selRandTip(dateTips))
+    return dict()
 
 def get_messages():
     '''This will return all emails that the user has sent or received -cole '''
@@ -112,12 +112,12 @@ def myprofile():
     if db.person.user_id.validate(auth.user)[1] != None:
         session.flash = T('You have to update your profile first!')
         redirect(URL('editprofile'))
-    return dict(thisprofile=thisprofile, tip=selRandTip(profTips))
+    return dict(thisprofile=thisprofile)
 
 def profile():
     profile_id = db.person(request.args(0))
     thisprofile = db(db.person.user_id == profile_id).select()
-    return dict(thisprofile=thisprofile, tip=selRandTip(profTips))
+    return dict(thisprofile=thisprofile)
 
 
 def editprofile():
@@ -140,24 +140,33 @@ def editprofile():
     if form.process().accepted:
         session.flash = T('Your profile has been updated')
         redirect(URL('default', 'editprofile'))
-    return dict(form=form, tip=selRandTip(profTips))
+    return dict(form=form)
+
+#JOSH'S TIP SECTION YAY.
+def loadTips():
+    """
+    0 = profile tips
+    1 = dating tips
+    """
+    if request.args(0) is "0":
+        return response.json(dict(tip_dict=profTips))
+    else:
+        return response.json(dict(tip_dict=dateTips))
 
 
-def tips():
-    return dict(profTips=profTips, dateTips=dateTips)
+def selRandTip():
+    """
+    0 = profile tips
+    1 = dating tips
+    """
+    if request.args(0) is "0":
+        x = randint(0, len(profTips)-1)
+        return profTips[x]
+    else:
+        x = randint(0, len(dateTips)-1)
+        return dateTips[x]
 
-def loadProfTips():
-    print "meow"
-    return response.json(dict(tip_dict=profTips))
 
-def selRandTip(tip_list):
-    x = randint(0, len(tip_list)-1)
-    return tip_list[x]
-
-def selRandProfTip():
-    print "woof"
-    x = randint(0, len(profTips)-1)
-    return profTips[x]
 
 def user():
     """

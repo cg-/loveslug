@@ -10,8 +10,15 @@
       <blockquote>
         <center><p>
         <!-- TIPS -->
-         <small>{{=tip}} </small>
-        </p> 
+          <!-- RACTIVE -->
+          <div id="target"></div>
+          <script id="template" type="text/ractive">
+             <small style="color:white; cursor:default" on-click="changeTip">
+               {% tip_box %}
+             </small>
+          </script>
+        </p>
+        </center>
       </blockquote></center><br><br>
       <br>
       <br>
@@ -87,7 +94,9 @@
             data: {
                 show_message_edit: false,
                 text: '',
-                subject: ''
+                subject: '',
+                tip_dict: {},
+                tip_box: "",
             },
         });
 
@@ -149,6 +158,29 @@
             });
             return uuid;
         }
+
+        $.ajax("{{=URL('default','loadTips', args="0")}}",
+            {
+                method: 'POST',
+                success: function (data) {
+                    MAIN.set('tip_dict', data['tip_dict']);
+                }
+            }
+        );
+        function load_tip(){
+            $.ajax("{{=URL('default', 'selRandTip', args="0")}}",
+                {
+                    method: 'POST',
+                    success: function (data) {
+                        MAIN.set('tip_box', data);
+                    }
+                }
+            )
+        }
+        load_tip();
+        MAIN.on("changeTip", function(e){
+            load_tip();
+        });
     });
 
 </script>

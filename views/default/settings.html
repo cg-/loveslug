@@ -2,29 +2,30 @@
 {{extend 'layout.html'}}
 
 <style>
-  body {
-    background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
-    background-size: 100%;
-  }
+    body {
+        background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
+        background-size: 100%;
+    }
 </style>
 
 <div class="container-fluid">
 
-  <div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="title col-md-4">
-      <!-- PAGE HEADER -->
-      <center>
-        <h3>
-        SEARCH SETTINGS
-        </h3>
-        <div>
-          <h4>
-          LOOKING FOR A:
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <div class="title col-md-4">
+            <!-- PAGE HEADER -->
+            <center>
+                <h3>
+                    SEARCH SETTINGS
+                </h3>
 
-          {{=form}}
-              <!-- js way to do it -- didn't work
+                <div>
+                    <h4>
+                        LOOKING FOR A:
+
+                    {{=form}}
+                        <!-- js way to do it -- didn't work
 
               <input type="checkbox" name="gender" value="male" id="male">Male<br>
               <input type="checkbox" name="gender" value="female" id="female">Female
@@ -47,39 +48,40 @@
               </script>
               -->
 
-            </h4>
-          </div>
-        <div>
-          <h4>
-            IN COLLEGE
-              <form action="">
-              <input type="checkbox" name="college" value="Porter">Porter<br>
-              <input type="checkbox" name="college" value="Kresge">Kresge<br>
-              <input type="checkbox" name="college" id="Merrill">Merrill<br>
-              <input type="checkbox" name="college" id="Crown">Crown<br>
-              <input type="checkbox" name="college" value="Oakes">Oakes<br>
-              <input type="checkbox" name="college" value="Cowell">Cowell<br>
-              <input type="checkbox" name="college" value="Stevenson">Stevenson<br>
-              <input type="checkbox" name="college" value="Eight">Eight<br>
-              <input type="checkbox" name="college" value="Nine">Nine<br>
-              <input type="checkbox" name="college" value="Ten">Ten<br>
-            </form>
-          </h4>
-        </div>
-        <div>
-          <h4>
-            AGE
-            <form method="post" action="demoform.asp">
-              <input type="range"  name="age" id="age" value="24" min="18" max="30" data-show-value="true">
-            </form>
-          </h4>
-        </div>
+                    </h4>
+                </div>
+                <div>
+                    <h4>
+                        IN COLLEGE
+                        <form action="">
+                            <input type="checkbox" name="college" value="Porter">Porter<br>
+                            <input type="checkbox" name="college" value="Kresge">Kresge<br>
+                            <input type="checkbox" name="college" id="Merrill">Merrill<br>
+                            <input type="checkbox" name="college" id="Crown">Crown<br>
+                            <input type="checkbox" name="college" value="Oakes">Oakes<br>
+                            <input type="checkbox" name="college" value="Cowell">Cowell<br>
+                            <input type="checkbox" name="college" value="Stevenson">Stevenson<br>
+                            <input type="checkbox" name="college" value="Eight">Eight<br>
+                            <input type="checkbox" name="college" value="Nine">Nine<br>
+                            <input type="checkbox" name="college" value="Ten">Ten<br>
+                        </form>
+                    </h4>
+                </div>
+                <div>
+                    <h4>
+                        AGE
+                        <form method="post" action="demoform.asp">
+                            <input type="range" name="age" id="age" value="24" min="18" max="30" data-show-value="true">
+                        </form>
+                    </h4>
+                </div>
 
-    <button onclick="myFunction()">Submit</button>
+                <button onclick="myFunction()">Submit</button>
 
-    <h1> . </h1>
-      </center>
+                <h1> . </h1>
+            </center>
+        </div>
+        <div class="col-md-4">
+        </div>
     </div>
-    <div class="col-md-4">
-    </div>
- 
+</div>

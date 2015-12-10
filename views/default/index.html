@@ -5,89 +5,102 @@
 <!-- IF USER IS NOT LOGGED IN, SHOW REGISTER PAGE-->
 {{if auth.user_id is None:}}
 
-  <!-- background image-->
-  <div class="container-fluid">
+<!-- background image-->
+<div class="container-fluid">
     <div class="row">
-      <div class="col-md-4">
-      </div>
-      <!-- loveslug logo -->
-      <div class="col-md-4">
-        <center><img src="http://i.imgur.com/AybSHtm.png" alt="LoveSlugs" style="width:510px;height:180px;"></center>
-      </div>
-      <div class="col-md-4">
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-4">
-      </div>
-      <!-- login/register/lost_password form -->
-      <div class="form col-md-4">
-        <div role="form" id="blah_form">
-        
-          {{
-          if request.args(0)=='login':
-              if not 'register' in auth.settings.actions_disabled:
-                  form.add_button(T('Sign Up'),URL(args='register', vars={'_next': request.vars._next} if request.vars._next else None),_class='btn btn-default')
-              pass
-              if not 'request_reset_password' in auth.settings.actions_disabled:
-                  form.add_button(T('Lost Password'),URL(args='request_reset_password'),_class='btn btn-default')
-              pass
-          pass
-          =form
-          }}
-    
+        <div class="col-md-4">
         </div>
-      </div>
-      <div class="col-md-4">
-      </div>
+        <!-- loveslug logo -->
+        <div class="col-md-4">
+            <center><img src="http://i.imgur.com/AybSHtm.png" alt="LoveSlugs" style="width:510px;height:180px;">
+            </center>
+        </div>
+        <div class="col-md-4">
+        </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+        <!-- login/register/lost_password form -->
+        <div class="form col-md-4">
+            <div role="form" id="blah_form">
 
-  {{block page_js}}
-  <script>
-      jQuery("#blah_form input:visible:enabled:first").focus();
-  {{if request.args(0)=='register':}}
-      web2py_validate_entropy(jQuery('#auth_user_password'),100);
-  {{elif request.args(0)=='change_password':}}
-      web2py_validate_entropy(jQuery('#no_table_new_password'),100);
-  {{pass}}
-  </script>
-  {{end page_js}}
+            {{
+                if request.args(0)=='login':
+                  if not 'register' in auth.settings.actions_disabled:
+                      form.add_button(T('Sign Up'),URL(args='register', vars={'_next': request.vars._next} if request.vars._next else None),_class='btn btn-default')
+                  pass
+                  if not 'request_reset_password' in auth.settings.actions_disabled:
+                      form.add_button(T('Lost Password'),URL(args='request_reset_password'),_class='btn btn-default')
+                  pass
+                pass
+                =form
+            }}
+
+            </div>
+        </div>
+        <div class="col-md-4">
+        </div>
+    </div>
+</div>
+
+{{block page_js}}
+<script>
+    jQuery("#blah_form input:visible:enabled:first").focus();
+    {{if request.args(0)=='register':}}
+    web2py_validate_entropy(jQuery('#auth_user_password'), 100);
+    {{elif request.args(0)=='change_password':}}
+    web2py_validate_entropy(jQuery('#no_table_new_password'), 100);
+    {{pass}}
+</script>
+{{end page_js}}
 
 <!-- IF USER IS LOGGED IN, SHOW DAILY MATCHES-->
 {{else:}}
 
 <div class="row">
     <div class="title col-md-12">
-      <center><h1>
-        DAILY HOTTIES
-      </h1></center><br>
-      <blockquote>
-        <center><p>
-        <!-- TIPS -->
-         <small>{{=tip}} </small>
-        </p> 
-      </blockquote></center><br><br>
+        <center><h1>
+            DAILY HOTTIES
+        </h1></center>
+        <br>
+        <blockquote>
+            <center><p>
+                <!-- TIPS -->
+                <!-- RACTIVE -->
 
-        {{ for users in profile: }}
-        <div class="matchpictures" >
+                <div id="target"></div>
+                <script id="template" type="text/ractive">
+                 <small style="color:white; cursor:default" on-click="changeTip">
+                   {% tip_box %}
+                 </small>
+                </script>
+                </p>
+            </center>
+        </blockquote>
+        <br><br>
+
+    {{ for users in profile: }}
+        <div class="matchpictures">
             <table>
-            <tr>
-                <!-- why is this displaying nothing? -->
-                <h1> {{db.preferences.male}} </h1>
-                <h1> {{db.preferences.female}} </h1>
+                <tr>
+                    <!-- why is this displaying nothing? -->
+                    <h1> {{db.preferences.male}} </h1>
 
-                <!-- if statement being ignored for unknown reasons -- supposed to only show all the pictures if both male and female are true -->
+                    <h1> {{db.preferences.female}} </h1>
+
+                    <!-- if statement being ignored for unknown reasons -- supposed to only show all the pictures if both male and female are true -->
                 {{ if db.preferences.male=="1" and db.preferences.female=="1":}}
 
-                <!-- actual if statements used once above problem is solved-->
+                    <!-- actual if statements used once above problem is solved-->
                 {{ #elif (db.preferences.female=="1" and users.gender == "Female"):}}
                 {{ #elif (db.preferences.male=="1" and users.gender == "Male"):}}
                 {{ #if users.college == myprofile[-1].college : }}
 
 
                     <h1> {{db.preferences.female}}</h1>
-                    <td><img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;" /></td>
+                    <td><img src="{{=URL('default', 'download', args=users.image)}}" style="width:200px;height:200px;"/>
+                    </td>
                     <h3>{{=A(users.your_name, _href=URL('default', 'profile', args=[users.user_id]))}}</h3>
                 {{if auth.user:}}
                     <span class="thumbs-up">
@@ -96,49 +109,37 @@
                     <span class="thumbs-down">
                         <i class="fa fa-thumbs-o-down"></i>
                     </span>
-                  {{ pass }}
+                {{ pass }}
                 {{ pass }}
                 {{ #pass }}
                 {{ #pass }}
-            </tr>
+                </tr>
             </table>
         </div>
-        {{pass}}
+    {{pass}}
 
         <div class="row">
 
-          <div class="col-md-12">
+            <div class="col-md-12">
             {{ for users in profile: }}
-            <div class="col-md-2 dailyhottie" align ="center">                  
-              <br><a href="{{=URL('default', 'profile', args=users.user_id)}}"><img src="{{=URL('default', 'download', args=users.image)}}" style="width:210px;height:210px;border:1px solid #000000"/><br>
-          </div>{{pass}}
-          <br>
-          <br>
-          <br>
+                <div class="col-md-2 dailyhottie" align="center">
+                    <br><a href="{{=URL('default', 'profile', args=users.user_id)}}"/><img
+                        src="{{=URL('default', 'download', args=users.image)}}"
+                        style="width:210px;height:210px;border:1px solid #000000"/><br>
+                </div>{{pass}}
+                <br>
+                <br>
+                <br>
+            </div>
         </div>
-      </div>
     </div>
-  </div>  
+</div>
 </div>
 <br><br>
-  <!-- RACTIVE 
-  <br><br><div id="target"></div>
-  <script id="template" type="text/ractive">
-    <br>
-   <center> <button class="btn btn-primary" style="color:white" on-click="changeTip">
-        {% tip_box %}
-    </button></center>
-  </script>
-
-
-</div>
-
 {{pass}}
-
-</div>
--->
+</body>
 <script>
-    $(function() {
+    $(function () {
 
         // Ractive object
         var MAIN = new Ractive({
@@ -151,26 +152,27 @@
                 tip_box: "",
             },
         });
-        $.ajax("{{=URL('default','loadProfTips')}}",
-            {
-                method: 'POST',
-                success: function (data) {
-                    MAIN.set('tip_dict', data['tip_dict']);
-                }
-            }
-        );
-        function load_tip(){
-            $.ajax("{{=URL('default', 'selRandProfTip')}}",
+        $.ajax("{{=URL('default','loadTips', args="0")}}",
                 {
                     method: 'POST',
                     success: function (data) {
-                        MAIN.set('tip_box', data);
+                        MAIN.set('tip_dict', data['tip_dict']);
                     }
                 }
+        );
+        function load_tip() {
+            $.ajax("{{=URL('default', 'selRandTip', args="0")}}",
+                    {
+                        method: 'POST',
+                        success: function (data) {
+                            MAIN.set('tip_box', data);
+                        }
+                    }
             )
         }
+
         load_tip();
-        MAIN.on("changeTip", function(e){
+        MAIN.on("changeTip", function (e) {
             load_tip();
         });
     });
