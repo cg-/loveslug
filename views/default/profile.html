@@ -1,6 +1,13 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
+
+{{if auth.user_id is None:}}
+  {{redirect(URL('index'))}}
+{{else:}}
+
+
+
 <body class="background">
   <div class="container-fluid">
     <div class="title col-md-12">
@@ -316,3 +323,5 @@ jQuery('span.thumb-rating').each(function(){
     });
 
 </script>
+
+{{pass}}

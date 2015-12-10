@@ -1,6 +1,11 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
+{{if auth.user_id is None:}}
+  {{redirect(URL('index'))}}
+{{else:}}
+
+
 <style>
     body {
         background: url('http://i.imgur.com/FLlTgwF.png') no-repeat;
@@ -85,3 +90,5 @@
         </div>
     </div>
 </div>
+
+{{pass}}

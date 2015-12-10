@@ -1,25 +1,30 @@
 {{left_sidebar_enabled,right_sidebar_enabled=False,('message' in globals())}}
 {{extend 'layout.html'}}
 
-<body class="background">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-            </div>
-            <div class="title col-md-4">
-                <!-- PAGE HEADER -->
-                <center>
-                    <h1>
-                        MY PROFILE
-                    </h1>
-                    <h5>
-                        <hr>
-                    </h5>
+{{if auth.user_id is None:}}
+  {{redirect(URL('index'))}}
+{{else:}}
 
-                </center>
-            </div>
-            <div class="col-md-4">
-            </div>
-        </div>
-    </div>
-</body>
+	<body class="background">
+	    <div class="container-fluid">
+	        <div class="row">
+	            <div class="col-md-4">
+	            </div>
+	            <div class="title col-md-4">
+	                <!-- PAGE HEADER -->
+	                <center>
+	                    <h1>
+	                        MY PROFILE
+	                    </h1>
+	                    <h5>
+	                        <hr>
+	                    </h5>
+
+	                </center>
+	            </div>
+	            <div class="col-md-4">
+	            </div>
+	        </div>
+	    </div>
+	</body>
+{{pass}}
